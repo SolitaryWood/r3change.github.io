@@ -1,0 +1,1255 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="r3change">
+  <meta name="keywords" content="">
+  <title>各类工具收集 - 博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"5c0e130ed04b8f55fb9ecacc1d607489","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>r3change's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/header.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="各类工具收集">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-12 21:52" pubdate>
+        2020年12月12日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      79
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">各类工具收集</h1>
+            
+            <div class="markdown-body">
+              <h3 id="信息收集工具"><a href="#信息收集工具" class="headerlink" title="信息收集工具"></a>信息收集工具</h3><h4 id="WhatWeb（指纹识别工具）"><a href="#WhatWeb（指纹识别工具）" class="headerlink" title="WhatWeb（指纹识别工具）"></a>WhatWeb（指纹识别工具）</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/urbanadventurer/</span>WhatWeb</code></pre>
+
+
+
+<h4 id="WAF类型检测工具"><a href="#WAF类型检测工具" class="headerlink" title="WAF类型检测工具"></a>WAF类型检测工具</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/EnableSecurity/</span>wafw00f
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Ekultek/</span>WhatWaf</code></pre>
+
+
+
+<h4 id="JSFinder"><a href="#JSFinder" class="headerlink" title="JSFinder"></a>JSFinder</h4><p>从js文件中寻找感接口和子域名</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Threezh1/</span>JSFinder</code></pre>
+
+<p>安装依赖库</p>
+<pre><code class="hljs mipsasm">pip <span class="hljs-keyword">install </span>requests <span class="hljs-keyword">bs4 </span>argparse</code></pre>
+
+<p>使用：</p>
+<pre><code class="hljs reasonml">python3 <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSFinder</span>.</span></span>py -u url</code></pre>
+
+<p>选项：</p>
+<pre><code class="hljs diff"><span class="hljs-deletion">-d：进行深度爬去获取更多内容</span>
+<span class="hljs-deletion">-c：指定Cookie来爬取页面</span>
+<span class="hljs-deletion">-ou：将获取到的url保存到指定文件</span>
+<span class="hljs-deletion">-os：将获取到的子域名保存到指定文件</span>
+<span class="hljs-deletion">-f filename：从文件中获取Url链接或者js链接</span></code></pre>
+
+
+
+<hr>
+<h3 id="目录扫描工具"><a href="#目录扫描工具" class="headerlink" title="目录扫描工具"></a>目录扫描工具</h3><h4 id="dirmap"><a href="#dirmap" class="headerlink" title="dirmap"></a>dirmap</h4><p>一个高级web目录扫描工具，功能将会强于DirBuster、Dirsearch、cansina、御剑</p>
+<p>项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/H4ckForJob/</span>dirmap</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell">git clone https://github.com/H4ckForJob/dirmap.git &amp;&amp; cd dirmap &amp;&amp; python3 -m pip install -r requirement.txt</code></pre>
+
+<p>使用</p>
+<pre><code class="hljs nginx"><span class="hljs-attribute">python3</span> dirmap.py -i https://target.com -lcf
+
+-i：指定要扫描的目录
+可以是单个目标（默认http），例如 -i <span class="hljs-number">192.168.1.1</span>
+可以是子网（CIDR格式），例如 -i <span class="hljs-number">192.168.1.0</span>/<span class="hljs-number">24</span>
+可以是网络范围，例如 -i <span class="hljs-number">192.168.1.1</span>-<span class="hljs-number">192.168.1.100</span>
+可以从文件中读取目标 -iF targets.txt</code></pre>
+
+<p>扫描结果将自动保存在项目根目录下的output文件夹中，每一个目标生成一个txt，命名格式为：目标域名.txt。结果自动去重</p>
+<h4 id="dirsearch"><a href="#dirsearch" class="headerlink" title="dirsearch"></a>dirsearch</h4><p>项目地址</p>
+<pre><code class="hljs shell">https://github.com/maurosoria/dirsearch</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell">git clone https://github.com/maurosoria/dirsearch.git</code></pre>
+
+<p>使用</p>
+<pre><code class="hljs shell">python3 dirsearch.py -u &lt;URL&gt; -e &lt;EXTENSION&gt;
+python3 dirsearch.py -E -u https://target
+python3 dirsearch.py -e php,html,js -u https://target
+python3 dirsearch.py -e php,html,js -u https://target -w /path/to/wordlist</code></pre>
+
+
+
+<h4 id="dirb"><a href="#dirb" class="headerlink" title="dirb"></a>dirb</h4><p>安装</p>
+<pre><code class="hljs awk">下载dirb安装包：
+http:<span class="hljs-regexp">//</span>dirb.sourceforge.net/
+https:<span class="hljs-regexp">//</span>sourceforge.net<span class="hljs-regexp">/projects/</span>dirb<span class="hljs-regexp">/files/</span>
+
+参考：https:<span class="hljs-regexp">//</span>www.jianshu.com<span class="hljs-regexp">/p/</span><span class="hljs-number">2</span>bc2f9bde4d1</code></pre>
+
+<p>选项</p>
+<pre><code class="hljs haml">dirb：后面不接任何选项，可以查看该工具帮助信息
+
+-<span class="ruby">a &lt;user-agent&gt;：自定义UA</span>
+<span class="ruby">-b：使用路径</span>
+<span class="ruby">-c &lt;cookie&gt;：设置cookie</span>
+<span class="ruby">-E &lt;certificate&gt;：客户端证书路径</span>
+<span class="ruby">-f：微调<span class="hljs-number">404</span>的检测</span>
+<span class="ruby">-H &lt;header&gt;：自定义HTTP请求头</span>
+<span class="ruby">-i：使用不区分大小写的搜索</span>
+<span class="ruby">-l : 打印<span class="hljs-string">&#x27;Location&#x27;</span>头，当发现</span>
+<span class="ruby">-N &lt;nf_code&gt;：忽略指定状态码的HTTP响应</span>
+<span class="ruby">-o &lt;output_file&gt;：保存结果至文件</span>
+<span class="ruby">-r : 不进行递归搜索</span>
+<span class="ruby">-R：互动递归 (要求每个目录)</span>
+<span class="ruby">-S：无声模式，不显示测试过程</span>
+<span class="ruby">-v：显示<span class="hljs-number">404</span>页面</span>
+<span class="ruby">-X &lt;extensions&gt; <span class="hljs-regexp">/ -x &lt;exts_file&gt;：在字典单词后面添加指定扩展名</span></span>
+<span class="ruby">-z：增加一毫秒的延迟，避免过度的泛洪</span></code></pre>
+
+<p>使用</p>
+<p>默认字段路径：/usr/share/dirb/wordlists/</p>
+<pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 默认扫描
+<span class="hljs-code">    dirb  url</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">2. 自定义字典扫描</span>
+<span class="hljs-code">    dirb url wordlistpath</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">3. 保存结果 为log.txt</span>
+<span class="hljs-code">    dirb url wordlistpath -o filepath</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">4. 过滤指定状态码</span>
+<span class="hljs-code">    dirb url wordlistpath -N code</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">5. 扫描.asp文件</span>
+<span class="hljs-code">    dirb url wordlistpath -X .asp</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">6. 不可列目录扫描</span>
+<span class="hljs-code">    dirb url -fv</span>
+<span class="hljs-code"></span>
+<span class="hljs-code">7. 不区分大小写，确定对方是windows系统</span>
+<span class="hljs-code">    dirb url -i</span></code></pre>
+
+<p>工具帮助信息</p>
+<pre><code class="hljs ada"><span class="hljs-comment">-----------------</span>
+DIRB v2.<span class="hljs-number">22</span>    
+By The Dark Raver
+<span class="hljs-comment">-----------------</span>
+
+dirb &lt;url_base&gt; [&lt;wordlist_file(s)&gt;] [options]
+
+========================= NOTES =========================
+ &lt;url_base&gt; : <span class="hljs-type">Base</span> URL to scan. (<span class="hljs-keyword">Use</span> -resume <span class="hljs-keyword">for</span> session resuming)
+ &lt;wordlist_file(s)&gt; : <span class="hljs-type">List</span> <span class="hljs-keyword">of</span> wordfiles. (wordfile1,wordfile2,wordfile3...)
+
+======================== HOTKEYS ========================
+ <span class="hljs-string">&#x27;n&#x27;</span> -&gt; Go to next directory.
+ <span class="hljs-string">&#x27;q&#x27;</span> -&gt; Stop scan. (Saving state <span class="hljs-keyword">for</span> resume)
+ <span class="hljs-string">&#x27;r&#x27;</span> -&gt; Remaining scan stats.
+
+======================== OPTIONS ========================
+ -a &lt;agent_string&gt; : <span class="hljs-type">Specify</span> your custom USER_AGENT.
+ -c &lt;cookie_string&gt; : <span class="hljs-type">Set</span> a cookie <span class="hljs-keyword">for</span> the HTTP request.
+ -f : <span class="hljs-type">Fine</span> tunning <span class="hljs-keyword">of</span> NOT_FOUND (<span class="hljs-number">404</span>) detection.
+ -H &lt;header_string&gt; : <span class="hljs-type">Add</span> a custom header to the HTTP request.
+ -i : <span class="hljs-type">Use</span> <span class="hljs-keyword">case</span>-insensitive search.
+ -l : <span class="hljs-type">Print</span> <span class="hljs-string">&quot;Location&quot;</span> header <span class="hljs-keyword">when</span> found.
+ -N &lt;nf_code&gt;: Ignore responses <span class="hljs-keyword">with</span> this HTTP code.
+ -o &lt;output_file&gt; : <span class="hljs-type">Save</span> output to disk.
+ -p &lt;proxy[:port]&gt; : <span class="hljs-type">Use</span> this proxy. (Default port <span class="hljs-keyword">is</span> <span class="hljs-number">1080</span>)
+ -P &lt;proxy_username:proxy_password&gt; : <span class="hljs-type">Proxy</span> Authentication.
+ -r : <span class="hljs-type">Don</span><span class="hljs-symbol">&#x27;t</span> search recursively.
+ -R : <span class="hljs-type">Interactive</span> recursion. (Asks <span class="hljs-keyword">for</span> each directory)
+ -S : <span class="hljs-type">Silent</span> Mode. Don<span class="hljs-symbol">&#x27;t</span> show tested words. (<span class="hljs-keyword">For</span> dumb terminals)
+ -t : <span class="hljs-type">Don</span><span class="hljs-symbol">&#x27;t</span> force an ending <span class="hljs-string">&#x27;/&#x27;</span> on URLs.
+ -u &lt;username:password&gt; : <span class="hljs-type">HTTP</span> Authentication.
+ -v : <span class="hljs-type">Show</span> also NOT_FOUND pages.
+ -w : <span class="hljs-type">Don</span><span class="hljs-symbol">&#x27;t</span> stop on WARNING messages.
+ -X &lt;extensions&gt; / -x &lt;exts_file&gt; : <span class="hljs-type">Append</span> each word <span class="hljs-keyword">with</span> this extensions.
+ -z &lt;milisecs&gt; : <span class="hljs-type">Add</span> a miliseconds <span class="hljs-keyword">delay</span> to <span class="hljs-keyword">not</span> cause excessive Flood.
+
+======================== EXAMPLES =======================
+ dirb http://url/directory/ (Simple Test)
+ dirb http://url/ -X .html (Test files <span class="hljs-keyword">with</span> &#x27;.html&#x27; extension)
+ dirb http://url/ /usr/share/dirb/wordlists/vulns/apache.txt (Test <span class="hljs-keyword">with</span> apache.txt wordlist)
+ dirb https://secure_url/ (Simple Test <span class="hljs-keyword">with</span> SSL)</code></pre>
+
+
+
+<h4 id="WebAliveScan"><a href="#WebAliveScan" class="headerlink" title="WebAliveScan"></a>WebAliveScan</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/broken5/</span>WebAliveScan</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell">git clone https://github.com/broken5/WebAliveScan.git
+cd WebAliveScan/
+python3 -m pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/</code></pre>
+
+<p>使用</p>
+<pre><code class="hljs shell">python3 webscan.py --target target.txt --port 80
+python3 webscan.py --target target.txt --port large</code></pre>
+
+
+
+<h4 id="gobuster"><a href="#gobuster" class="headerlink" title="gobuster"></a>gobuster</h4><p>Gobuster是用于暴力破解的工具：</p>
+<ul>
+<li>网站中的URI（目录和文件）</li>
+<li>DNS子域（具有通配符支持）</li>
+<li>目标Web服务器上的虚拟主机名。</li>
+<li>打开Amazon S3存储桶</li>
+</ul>
+<h4 id="7kbscan-WebPathBrute"><a href="#7kbscan-WebPathBrute" class="headerlink" title="7kbscan-WebPathBrute"></a>7kbscan-WebPathBrute</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/7kbstorm/</span><span class="hljs-number">7</span>kbscan-WebPathBrute</code></pre>
+
+
+
+<h4 id="御剑Web目录扫描优化版激活工具"><a href="#御剑Web目录扫描优化版激活工具" class="headerlink" title="御剑Web目录扫描优化版激活工具"></a>御剑Web目录扫描优化版激活工具</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/akkuman/yu</span>jian_keygen</code></pre>
+
+
+
+<hr>
+<h3 id="端口扫描工具"><a href="#端口扫描工具" class="headerlink" title="端口扫描工具"></a>端口扫描工具</h3><h4 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h4><p>端口扫描神器</p>
+<p>项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/nmap/</span>nmap</code></pre>
+
+<p>官网下载地址</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//nmap<span class="hljs-meta">.org</span>/download.html</code></pre>
+
+
+
+<h4 id="Masscan"><a href="#Masscan" class="headerlink" title="Masscan"></a>Masscan</h4><p>快速端口扫描工具，采用异步传输的方式，比nmap扫描速度更快</p>
+<p>项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/robertdavidgraham/m</span>asscan</code></pre>
+
+<p>安装：</p>
+<pre><code class="hljs shell">apt install git gcc make libpcap-dev
+git clone https://github.com/robertdavidgraham/masscan.git
+cd masscan
+<span class="hljs-meta">#</span><span class="bash"> 编译安装</span>
+make
+<span class="hljs-meta">#</span><span class="bash"> 测试是否安装成功</span>
+make regress
+
+bin/masscan --selftest
+regression test: success!
+<span class="hljs-meta">#</span><span class="bash"> 表示安装成功</span>
+
+ln bin/masscan /usr/local/bin/masscan</code></pre>
+
+<p>语法：</p>
+<pre><code class="hljs pgsql">masscan [<span class="hljs-keyword">options</span>] &lt;ip/range&gt;</code></pre>
+
+<p><code>&lt;ip/range&gt;</code> 指定IP地址范围，有三种有效格式</p>
+<ol>
+<li><p>单独的IPv4地址</p>
+</li>
+<li><p>类似 <code>10.0.0.1-10.0.0.233</code> 的范围地址</p>
+</li>
+<li><p>CIDR地址 类似于 <code>0.0.0.0/0</code>，多个目标可以用逗号隔开</p>
+</li>
+</ol>
+<p>选项：</p>
+<pre><code class="hljs diff"><span class="hljs-deletion">-p 80,8000-9000/--ports 0-65535 指定端口进行扫描</span>
+
+<span class="hljs-deletion">--banners 获取banner信息，支持少量的协议</span>
+
+<span class="hljs-deletion">--rate &lt;packets-per-second&gt; 指定发包的速率，默认为每秒100个数据包</span>
+
+<span class="hljs-deletion">-c &lt;filename&gt;, --conf &lt;filename&gt; 读取配置文件进行扫描</span>
+
+<span class="hljs-deletion">--echo 将当前的配置重定向到一个配置文件中</span>
+
+<span class="hljs-deletion">-e &lt;ifname&gt; , --adapter &lt;ifname&gt; 指定用来发包的网卡接口名称</span>
+
+<span class="hljs-deletion">--adapter-ip &lt;ip-address&gt; 指定发包的IP地址</span>
+
+<span class="hljs-deletion">--adapter-port &lt;port&gt; 指定发包的源端口</span>
+
+<span class="hljs-deletion">--adapter-mac &lt;mac-address&gt; 指定发包的源MAC地址</span>
+
+<span class="hljs-deletion">--router-mac &lt;mac address&gt; 指定网关的MAC地址</span>
+
+<span class="hljs-deletion">--exclude &lt;ip/range&gt; IP地址范围黑名单，防止masscan扫描</span>
+
+<span class="hljs-deletion">--excludefile &lt;filename&gt; 指定IP地址范围黑名单文件</span>
+
+<span class="hljs-deletion">--includefile，-iL &lt;filename&gt; 读取一个范围列表进行扫描</span>
+
+<span class="hljs-deletion">--ping 扫描应该包含ICMP回应请求</span>
+
+<span class="hljs-deletion">--append-output 以附加的形式输出到文件</span>
+
+<span class="hljs-deletion">--iflist 列出可用的网络接口，然后退出</span>
+
+<span class="hljs-deletion">--retries 发送重试的次数，以1秒为间隔</span>
+
+<span class="hljs-deletion">--nmap 打印与nmap兼容的相关信息</span>
+
+<span class="hljs-deletion">--http-user-agent &lt;user-agent&gt; 设置user-agent字段的值</span>
+
+<span class="hljs-deletion">--show [open,close] 告诉要显示的端口状态，默认是显示开放端口</span>
+
+<span class="hljs-deletion">--noshow [open,close] 禁用端口状态显示</span>
+
+<span class="hljs-deletion">--pcap &lt;filename&gt; 将接收到的数据包以libpcap格式存储</span>
+
+<span class="hljs-deletion">--regress 运行回归测试，测试扫描器是否正常运行</span>
+
+<span class="hljs-deletion">--ttl &lt;num&gt; 指定传出数据包的TTL值，默认为255</span>
+
+<span class="hljs-deletion">--wait &lt;seconds&gt; 指定发送完包之后的等待时间，默认为10秒</span>
+
+<span class="hljs-deletion">--offline 没有实际的发包，主要用来测试开销</span>
+
+<span class="hljs-deletion">-sL 不执行扫描，主要是生成一个随机地址列表</span>
+
+<span class="hljs-deletion">--readscan &lt;binary-files&gt; 读取从-oB生成的二进制文件，可以转化为XML或者JSON格式.</span>
+
+<span class="hljs-deletion">--connection-timeout &lt;secs&gt; 抓取banners时指定保持TCP连接的最大秒数，默认是30秒。</span></code></pre>
+
+<p>输出</p>
+<pre><code class="hljs sas">-oX <span class="hljs-meta">filename</span>：输出到<span class="hljs-meta">filename</span>的XML。
+-oG <span class="hljs-meta">filename</span>：输出到<span class="hljs-meta">filename</span>在的grepable格式。
+-oJ <span class="hljs-meta">filename</span>：输出到<span class="hljs-meta">filename</span>在JSON格式。</code></pre>
+
+
+
+<h4 id="RustScan"><a href="#RustScan" class="headerlink" title="RustScan"></a>RustScan</h4><p>最快的端口扫描工具，从速度上和masscan不分伯仲。端口扫描完后会调用Nmap进行指纹识别</p>
+<p>项目地址：</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/RustScan/</span>RustScan</code></pre>
+
+
+
+<hr>
+<h3 id="子域名查找工具"><a href="#子域名查找工具" class="headerlink" title="子域名查找工具"></a>子域名查找工具</h3><h4 id="subDomainsBrute"><a href="#subDomainsBrute" class="headerlink" title="subDomainsBrute"></a>subDomainsBrute</h4><p>高并发的DNS暴力枚举工具。支持Python3.5+和Python2.7，使用Python3.5+ 效率更高。</p>
+<p>项目地址：</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/lijiejie/</span>subDomainsBrute</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell">Python3.5+：
+pip install aiodns
+
+Python2：
+pip install dnspython gevent</code></pre>
+
+<p>功能特点</p>
+<pre><code class="hljs x86asm">用小字典递归地发现三级域名，四级域名、五级域名等域名
+
+字典较为丰富，小字典就包括<span class="hljs-number">1</span>万<span class="hljs-number">5</span>千条，大字典多达<span class="hljs-number">6</span>万<span class="hljs-number">3</span>千条
+
+默认使用114DNS、百度DNS、阿里DNS这几个快速又可靠的<span class="hljs-meta">Public</span> DNS查询，可修改配置文件添加DNS服务器（在dict里面可以进行添加）
+
+自动去重泛解析的域名，当前规则：超过<span class="hljs-number">2</span>个域名指向同一<span class="hljs-built_in">IP</span>，则此后发现的其他指向该<span class="hljs-built_in">IP</span>的域名将被丢弃</code></pre>
+
+<p>选项：</p>
+<pre><code class="hljs ini">-f FILE：指定子域名字典，默认为subnames.txt
+
+--full：完整的扫描，使用subnames_full.txt文件进行暴力枚举
+
+-i, --ignore-intranet：忽略指向私有ip的域
+
+-w, --wildcard：强制扫描泛解析的域名
+
+-t THREADS, --threads=THREADS：指定线程，默认256个
+
+-p PROCESS, --process=PROCESS：指定进程，默认6个
+
+-o OUTPUT, --output=OUTPUT：指定输出文件，默认为&#123;target&#125;.txt</code></pre>
+
+<p>使用：</p>
+<pre><code class="hljs shell">python subDomainsBrute.py [domain] --full</code></pre>
+
+
+
+<h4 id="ksubdomain"><a href="#ksubdomain" class="headerlink" title="ksubdomain"></a>ksubdomain</h4><p>Ksubdomain是一个域名爆破/验证工具，它使用Go编写，支持在 <code>Windows/Linux/Mac</code> 上运行，在Mac和Windows上最大发包速度在 <code>30w/s</code>，Linux上为 <code>160w/s</code> 的速度。</p>
+<p>无状态域名爆破工具</p>
+<p>无状态连接是指无需关心TCP,UDP协议状态，不占用系统协议栈资源，忘记syn,ack,fin,timewait，不进行会话组包。在实现上也有可能需要把必要的信息存放在数据包本身中。如13年曾以44分钟扫描完全部互联网zmap，之后出现massscan，都使用了这种无状态技术，扫描速度比以往任何工具都有质的提升，后者更是提出了3分钟扫完互联网的极速。</p>
+<p>项目地址：</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/knownsec/</span>ksubdomain</code></pre>
+
+<p>安装：</p>
+<pre><code class="hljs awk">wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/knownsec/</span>ksubdomain<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/v0.5.1/</span>ksubdomain_linux.zip
+在linux下，需要安装libpcap-dev
+在Windows下，需要安装WinPcap
+在MAC下可以直接使用</code></pre>
+
+<p>选项：</p>
+<pre><code class="hljs ini">-b string：宽带的下行速度，可以5M,5K,5G (default &quot;1M&quot;)
+
+-d string：爆破域名
+
+-dl string：从文件中读取爆破域名
+
+-e int：默认网络设备ID,默认-1，如果有多个网络设备会在命令行中选择 (default -1)
+
+-f string：字典路径,-d下文件为子域名字典，-verify下文件为需要验证的域名
+
+-l int：爆破域名层级,默认爆破一级域名 (default 1)
+
+-o string：输出文件路径
+
+-s string：resolvers文件路径,默认使用内置DNS
+
+-silent：使用后屏幕将仅输出域名
+
+-skip-wild：跳过泛解析的域名
+
+-summary：在扫描完毕后整理域名归属asn以及IP段
+
+-test：测试本地最大发包数
+
+-ttl：导出格式中包含TTL选项
+
+-verify：验证模式</code></pre>
+
+<p>常用命令</p>
+<pre><code class="hljs shell">使用内置字典爆破
+ksubdomain -d seebug.org
+
+使用字典爆破域名
+ksubdomain -d seebug.org -f subdomains.dict
+
+字典里都是域名，可使用验证模式
+ksubdomain -f dns.txt -verify
+
+爆破三级域名
+ksubdomain -d seebug.org -l 2
+
+通过管道爆破
+echo &quot;seebug.org&quot;|ksubdomain
+
+通过管道验证域名
+echo &quot;paper.seebug.org&quot;|ksubdomain -verify</code></pre>
+
+<p>管道操作</p>
+<p>结合知名的<code>subfinder</code>，<code>httpx</code>等工具，可以用管道结合在一起配合工作。</p>
+<pre><code class="hljs shell">./subfinder -d baidu.com -silent|./ksubdomain -verify -silent|./httpx -title -content-length -status-code -silent
+
+subfinder：通过各种搜索引擎获取域名
+ksubdomain：验证域名
+httpx：http请求获得数据,验证存活</code></pre>
+
+<p>扩展</p>
+<p>httpx项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/projectdiscovery/</span>httpx</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell">从 https://github.com/projectdiscovery/httpx/releases 下载最新的二进制文件
+
+tar -xvf httpx-linux-amd64.tar 
+mv httpx-linux-amd64 /usr/local/bin/httpx
+httpx -h</code></pre>
+
+<p>subfinder项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/projectdiscovery/</span>subfinder</code></pre>
+
+<p>安装</p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> download release from https://github.com/projectdiscovery/subfinder/releases/</span>
+tar -xzvf subfinder-linux-amd64.tar.gz
+mv subfinder /usr/local/bin/
+subfinder -h
+
+手动编译
+git clone https://github.com/projectdiscovery/subfinder.git
+cd subfinder/v2/cmd/subfinder
+go build .
+mv subfinder /usr/local/bin/
+subfinder -h</code></pre>
+
+<p>参考</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">https</span>://mp.weixin.qq.com/s/Xm<span class="hljs-number">4</span>cw<span class="hljs-number">1</span>qd<span class="hljs-number">5</span>WXoVa<span class="hljs-number">5</span>iYMViFg - ksubdomain 无状态域名爆破工具</code></pre>
+
+
+
+<h4 id="Hosts-scan"><a href="#Hosts-scan" class="headerlink" title="Hosts_scan"></a>Hosts_scan</h4><p>ip-host碰撞查找子域名</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fofapro/</span>Hosts_scan</code></pre>
+
+
+
+<hr>
+<h3 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h3><h4 id="火狐-FireFox-浏览器插件"><a href="#火狐-FireFox-浏览器插件" class="headerlink" title="火狐(FireFox)浏览器插件"></a>火狐(FireFox)浏览器插件</h4><h5 id="HackBar"><a href="#HackBar" class="headerlink" title="HackBar"></a>HackBar</h5><p>Web测试辅助插件，提供了SQL注入和XSS攻击的payload，提供了快速对字符串进行各种编码的功能</p>
+<h5 id="Max-Hackbar"><a href="#Max-Hackbar" class="headerlink" title="Max Hackbar"></a>Max Hackbar</h5><p>免费的hackbar插件</p>
+<h5 id="Wappalyzer"><a href="#Wappalyzer" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h5><p>用于识别网站所使用的技术，能够分析识别目标网站所采用的平台架构、网站环境、服务器配置环境、Javascript框架、编程语言等信息。</p>
+<h5 id="User-Agent-Switcher"><a href="#User-Agent-Switcher" class="headerlink" title="User Agent Switcher"></a>User Agent Switcher</h5><p>改变客户端的UA的一款插件</p>
+<h5 id="User-Agent-Switcher-and-Manager"><a href="#User-Agent-Switcher-and-Manager" class="headerlink" title="User-Agent Switcher and Manager"></a>User-Agent Switcher and Manager</h5><p>修改User-Agent头信息，内置多种UA头信息，可根据需求切换</p>
+<h5 id="FoxyProxy-Standard"><a href="#FoxyProxy-Standard" class="headerlink" title="FoxyProxy Standard"></a>FoxyProxy Standard</h5><p>FoxyProxy是一个高级的代理管理工具，它完全替代了Firefox有限的代理功能。它提供比SwitchProxy、ProxyButton、 QuickProxy、xyzproxy、ProxyTex、TorButton等等更多的功能。</p>
+<h5 id="Shodan"><a href="#Shodan" class="headerlink" title="Shodan"></a>Shodan</h5><p>可检索Shodan.io收集的关于当前网站的数据，如IP、端口、国家城市等信息</p>
+<h5 id="FOFA-Pro-View"><a href="#FOFA-Pro-View" class="headerlink" title="FOFA Pro View"></a>FOFA Pro View</h5><p>检索获取当前网站所在地（国家、城市）、谁拥有IP以及其他开放的服务/端口等信息</p>
+<h5 id="Firefox-Multi-Account-Containers"><a href="#Firefox-Multi-Account-Containers" class="headerlink" title="Firefox Multi-Account Containers"></a>Firefox Multi-Account Containers</h5><p>插件允许多账户同时登录，使用容器分隔，用于测试越权比较方便</p>
+<h5 id="HTTP-Header-Live"><a href="#HTTP-Header-Live" class="headerlink" title="HTTP Header Live"></a>HTTP Header Live</h5><p>此插件可捕获网页中加载的全部网页流量数据包，点击任一数据包可对请求包进行修改和重放</p>
+<h4 id="谷歌-Chrome-浏览器插件"><a href="#谷歌-Chrome-浏览器插件" class="headerlink" title="谷歌(Chrome)浏览器插件"></a>谷歌(Chrome)浏览器插件</h4><p>安装插件可以通过Chrome网上应用商店（<code>https://chrome.google.com/webstore/category/extensions?hl=zh-CN</code>）安装，也可以通过crx文件安装。使用crx文件安装插件，首先在浏览器地址栏输入 <code>chrome://extensions</code> 进入扩展程序页面，然后将crx文件拖入该页面即可完成插件安装。</p>
+<p>国内插件源：</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>www.chromefor.com/
+https:<span class="hljs-regexp">//</span>www.gugeapps.com/</code></pre>
+
+<h5 id="HackBar-1"><a href="#HackBar-1" class="headerlink" title="HackBar"></a>HackBar</h5><h5 id="Wappalyzer-1"><a href="#Wappalyzer-1" class="headerlink" title="Wappalyzer"></a>Wappalyzer</h5><h5 id="Shodan-1"><a href="#Shodan-1" class="headerlink" title="Shodan"></a>Shodan</h5><h5 id="FOFA-Pro-View-1"><a href="#FOFA-Pro-View-1" class="headerlink" title="FOFA Pro View"></a>FOFA Pro View</h5><h5 id="EditThisCookie"><a href="#EditThisCookie" class="headerlink" title="EditThisCookie"></a>EditThisCookie</h5><p>修改浏览器保存的Cookie信息</p>
+<h5 id="User-Agent-Switcher-for-Chrome"><a href="#User-Agent-Switcher-for-Chrome" class="headerlink" title="User-Agent Switcher for Chrome"></a>User-Agent Switcher for Chrome</h5><p>快速修改UA头信息</p>
+<h5 id="X-Forwarded-For-Header"><a href="#X-Forwarded-For-Header" class="headerlink" title="X-Forwarded-For Header"></a>X-Forwarded-For Header</h5><p>可以很方便的在请求头里添加 X-Forwarded-For 头</p>
+<h5 id="Proxy-SwitchyOmega"><a href="#Proxy-SwitchyOmega" class="headerlink" title="Proxy SwitchyOmega"></a>Proxy SwitchyOmega</h5><p>轻松快捷的管理和切换多个代理设置</p>
+<h5 id="JSONView"><a href="#JSONView" class="headerlink" title="JSONView"></a>JSONView</h5><p>美化JSON</p>
+<h5 id="Hack-Tools"><a href="#Hack-Tools" class="headerlink" title="Hack-Tools"></a>Hack-Tools</h5><p>提供一些常用的payload和一些工具</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/LasCC/</span>Hack-Tools</code></pre>
+
+<h5 id="web-developer"><a href="#web-developer" class="headerlink" title="web-developer"></a>web-developer</h5><p>提供各种功能，例如禁用JS、禁用CSS、缓存、图片等</p>
+<h5 id="d3coder"><a href="#d3coder" class="headerlink" title="d3coder"></a>d3coder</h5><p>提供右键快速进行相应字符的解码操作的功能</p>
+<pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>时间戳解码
+<span class="hljs-bullet">- </span>rot13编解码
+<span class="hljs-bullet">- </span>base64 编解码
+<span class="hljs-bullet">- </span>CRC32 哈希值计算
+<span class="hljs-bullet">- </span>MD5 哈希值计算
+<span class="hljs-bullet">- </span>SHA1 哈希值计算
+<span class="hljs-bullet">- </span>二进制转十六进制
+<span class="hljs-bullet">- </span>二进制转文本
+<span class="hljs-bullet">- </span>HTML实体编解码
+<span class="hljs-bullet">- </span>HTML特殊字符编解码
+<span class="hljs-bullet">- </span>URI 编解码
+<span class="hljs-bullet">- </span>可打印字符引用编码
+<span class="hljs-bullet">- </span>Escapeshellarg (php内置函数)
+<span class="hljs-bullet">- </span>Unserialize (php内置函数)
+<span class="hljs-bullet">- </span>L33T 编解码
+<span class="hljs-bullet">- </span>反转字符串</code></pre>
+
+<h5 id="IP-Address-and-Domain-Information"><a href="#IP-Address-and-Domain-Information" class="headerlink" title="IP Address and Domain Information"></a>IP Address and Domain Information</h5><p>提供查询网站whois、dns记录等信息</p>
+<h5 id="Set-Character-Encoding"><a href="#Set-Character-Encoding" class="headerlink" title="Set Character Encoding"></a>Set Character Encoding</h5><p>修改网站的默认编码</p>
+<h5 id="IP-DNS-amp-Security-Tools"><a href="#IP-DNS-amp-Security-Tools" class="headerlink" title="IP, DNS &amp; Security Tools"></a>IP, DNS &amp; Security Tools</h5><p>这个插件是直接调用 <code>https://hackertarget.com</code> 官网接口来进行查询的，如果长时间不出查询结果时可能就得上“墙”了，可查询的信息包括有：IP、路由、DNS、Whios、指纹、HTTP头、同服等</p>
+<h5 id="anti-honepot"><a href="#anti-honepot" class="headerlink" title="anti-honepot"></a>anti-honepot</h5><p>用来检测Web蜜罐并中断请求，能够识别并中断长亭D-sensor和墨安幻阵的部分溯源API</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Ar3h/</span>anti-honeypot</code></pre>
+
+<h5 id="XSS-Rays（跨站之光）"><a href="#XSS-Rays（跨站之光）" class="headerlink" title="XSS Rays（跨站之光）"></a>XSS Rays（跨站之光）</h5><p>一个快速查找跨站脚本漏洞（XSS）的扩展，还支持注入检测。你可以轻松地解压，查看和编辑表单，即使表单设置了不可编辑。许多渗透测试人员使用这个扩展作为专门的XSS检测工具。</p>
+<h5 id="WebSecurify"><a href="#WebSecurify" class="headerlink" title="WebSecurify"></a>WebSecurify</h5><p>这是一个强大的跨平台网络安全测试工具，支持多种桌面操作系统，移动平台和浏览器。这是第一个直接在浏览器中运行的WEB安全检测工具。它支持XSS、XSRF、CSRF、SQL注入、文件上传、URL重定向等安全漏洞。程序内置了爬虫扫描器，尝试遍历页面并找出里面存在的安全问题。不过他并不是一个全自动的工具，它将会列出可能具有漏洞的地址，你需要自行确认漏洞是否存在。在扫描过程中，所有的特征数据都是放在云端的，所以你不需要担心数据库是否为最新版本，这个漏洞检测引擎将会保证实时更新。</p>
+<h5 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h5><p>让新标签页变成美丽的风景画、风景类壁纸，每天新建标签都可以看到世界各地的美丽风景</p>
+<h5 id="OneTab"><a href="#OneTab" class="headerlink" title="OneTab"></a>OneTab</h5><p>标签管理器</p>
+<h5 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h5><p>密码管理器，全球知名在线密码管理工具之一，可以使用多种密码复杂度级别的密码，一键生成密码，记住当前网址密码，全平台同步。</p>
+<h5 id="Adblock-Plus"><a href="#Adblock-Plus" class="headerlink" title="Adblock Plus"></a>Adblock Plus</h5><p>免费的广告拦截器，世界上最受欢迎的广告拦截程序之一，让你免受烦人的广告，还你一片清净。</p>
+<hr>
+<h3 id="蜜罐（Honeypot）"><a href="#蜜罐（Honeypot）" class="headerlink" title="蜜罐（Honeypot）"></a>蜜罐（Honeypot）</h3><p>蜜罐资源合集</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/paralax/</span>awesome-honeypots</code></pre>
+
+<p>SSH蜜罐</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/desaster/</span>kippo</code></pre>
+
+<p>SMTP蜜罐</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/awhitehatter/m</span>ailoney</code></pre>
+
+<p>web应用程序蜜罐</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/mushorg/g</span>lastopf</code></pre>
+
+<p>一个简单的Elasticsearch蜜罐</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/jordan-wright/</span>elastichoney</code></pre>
+
+<p>企业内部web类蜜罐，基于docker的蜜罐系统</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/atiger77/</span>Dionaea</code></pre>
+
+<p>HFish</p>
+<p>一款基于 Golang 开发的跨平台多功能主动诱导型开源蜜罐框架系统</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>hfish.io/
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/hacklcx/</span>HFish</code></pre>
+
+
+
+<hr>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p>Web Pentesting Fuzz 字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/TheKingOfDuck/</span>fuzzDicts</code></pre>
+
+<p>包括弱口令字典、目录字典、sql fuzz字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/H4lo/</span>dictionary</code></pre>
+
+<p>弱口令字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>weakpass.com/</code></pre>
+
+<p>Web安全测试中常用的爆破字典，包括网站后台、文件包含、WebShell密码、常用管理员用户名及密码等</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/3had0w/</span>Blasting-Dictionary</code></pre>
+
+<p>爆破字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/rootphantomer/</span>Blasting_dictionary</code></pre>
+
+<p>国外密码字典项目</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/berzerk0/</span>Probable-Wordlists</code></pre>
+
+<p>密码爆破字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>xz.aliyun.com<span class="hljs-regexp">/t/</span><span class="hljs-number">7823</span> - 是时候更新一下密码爆破字典了
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/huyuanzhi2/</span>password_brute_dictionary</code></pre>
+
+<p>渗透测试自用路径字典、爆破字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/cpkkcb/</span>fuzzDicts</code></pre>
+
+<p>基于实战沉淀下的各种弱口令字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fuzz-security/</span>SuperWordlist</code></pre>
+
+<p>高效爆破字典</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/3had0w/</span>Fuzzing-Dicts</code></pre>
+
+<p>各类字典集合</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/epony4c/</span>Exploit-Dictionary</code></pre>
+
+
+
+<h3 id="字典生成工具"><a href="#字典生成工具" class="headerlink" title="字典生成工具"></a>字典生成工具</h3><h4 id="Crunch"><a href="#Crunch" class="headerlink" title="Crunch"></a>Crunch</h4><p>Crunch是一个密码字典生成工具，能够按照指定的规则生成密码字典，可以灵活的制定自己的字典文件。工具生成的密码可以输出到屏幕，保存到文件，或另一个程序。该工具Kali中自带</p>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><pre><code class="hljs gams">crunch &lt;<span class="hljs-built_in">min</span>&gt; &lt;<span class="hljs-built_in">max</span>&gt; [<span class="hljs-keyword">options</span>]</code></pre>
+
+<h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><pre><code class="hljs haml">min：设定最小字符串长度（必选）
+
+max：设定最大字符串长度（必选）
+
+options：
+
+	-<span class="ruby">b     指定文件输出的大小，避免字典文件过大</span>
+<span class="ruby">	-c     指定文件输出的行数，即包含密码的个数</span>
+<span class="ruby">	-d     限制相同元素出现的次数</span>
+<span class="ruby">	-e     定义停止字符，即到该字符串就停止生成</span>
+<span class="ruby">	-f     调用库文件（/etc/share/crunch/charset.lst）</span>
+<span class="ruby">	-i     改变输出格式，即aaa,aab -&gt; aaa,baa</span>
+<span class="ruby">	-I     通常与-t联合使用，表明该字符为实义字符</span>
+<span class="ruby">	-m     通常与-p搭配</span>
+<span class="ruby">	-o     将密码保存到指定文件</span>
+<span class="ruby">	-p     指定元素以组合的方式进行</span>
+<span class="ruby">	-q     读取密码文件，即读取pass.txt</span>
+<span class="ruby">	-r     定义重某一字符串重新开始</span>
+<span class="ruby">	-s     指定一个开始的字符，即从自己定义的密码xxxx开始</span>
+<span class="ruby">	-t     指定密码输出的格式</span>
+<span class="ruby">	-u     禁止打印百分比（必须为最后一个选项）</span>
+<span class="ruby">	-z     压缩生成的字典文件，支持gzip,bzip2,lzma,7z</span>
+
+<span class="ruby">特殊字符</span>
+
+<span class="ruby">%      代表数字</span>
+<span class="ruby">^      代表特殊符号</span>
+<span class="ruby">@      代表小写字母</span>
+<span class="ruby">,      代表大写字符</span></code></pre>
+
+<h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><p>生成一个字典文件，用自己指定的字符（默认为26个小写字母为元素的所有组合）</p>
+<p>以123三个字符随机组成字典，长度最小为1，最大为3</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">crunch</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">123</span></code></pre>
+
+<p>若字典中需要空格要用双引号括起来</p>
+<p>生成几个元素的组合（可以用于社工中收集的信息）</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">crunch</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span> -p zhangsan <span class="hljs-number">2018</span> <span class="hljs-number">0101</span> ..</code></pre>
+
+<p>生成指定的字符串（比如生成编号，手机号等）</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">crunch</span> <span class="hljs-number">10</span> <span class="hljs-number">10</span> -t <span class="hljs-number">201800</span>%%%%</code></pre>
+
+<p>多种组合 生成3个元素的组合，前三位为定义的字符串</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">crunch</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> -t d@% -p aaa bbb</code></pre>
+
+<p>通过-l参数来使 <code>@,%^</code> 等特殊字符输出</p>
+<pre><code class="hljs mel">crunch <span class="hljs-number">7</span> <span class="hljs-number">7</span> -t p@ss,%^ -l a@aaaaa</code></pre>
+
+<p>-o参数也可使用 <code>&gt;&gt;</code> 来简化</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">crunch</span> <span class="hljs-number">4</span> <span class="hljs-number">4</span> -d <span class="hljs-number">2</span>@ -t @@@% &gt;&gt; test.txt</code></pre>
+
+<p>调用密码库</p>
+<pre><code class="hljs awk"><span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/crunch/</span>charset.lst</code></pre>
+
+<p>特殊字符</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">numeric</span>     表示<span class="hljs-number">0123456789</span>
+
+<span class="hljs-attribute">Lalpha</span>      表示<span class="hljs-number">26</span>位小写字母
+
+<span class="hljs-attribute">Ualpha</span>      表示<span class="hljs-number">26</span>位大写字母</code></pre>
+
+<p>实例：调用密码库 <code>charset.lst</code> 中的 <code>hex-upper</code> 项目字符，生成4位密码，其中格式为 <code>@ + hex-upper +% +%</code></p>
+<pre><code class="hljs mel">crunch <span class="hljs-number">4</span> <span class="hljs-number">4</span> -f charset.lst hex-upper -t @@%% -l @xdd</code></pre>
+
+
+
+<h4 id="Cewl"><a href="#Cewl" class="headerlink" title="Cewl"></a>Cewl</h4><p>cewl是通过爬取网站的时候，根据爬取内容的关键字生成一份字典</p>
+<h5 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h5><pre><code class="hljs css"><span class="hljs-selector-tag">cewl</span> <span class="hljs-selector-attr">[options]</span> <span class="hljs-selector-tag">url</span></code></pre>
+
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><pre><code class="hljs jboss-cli"><span class="hljs-params">--help</span>, -h: show <span class="hljs-keyword">help</span>			<span class="hljs-comment">#显示帮助信息</span>
+<span class="hljs-params">--keep</span>, -k: keep the downloaded file 			<span class="hljs-comment">#保存下载的文件</span>
+<span class="hljs-params">--depth</span> x, -d x: depth to spider to, default 2			<span class="hljs-comment">#网站爬取深度，默认为2，建议不要太大</span>
+<span class="hljs-params">--min_word_length</span>, -m: minimum word length, default 3   <span class="hljs-comment">#字典的最小单词长度，如果小于此不收入字典</span>
+<span class="hljs-params">--offsite</span>, -o: let the spider visit other sites			<span class="hljs-comment">#让爬虫爬取其他站点，针对外链的</span>
+<span class="hljs-params">--write</span>, -w file: write the output to the file          <span class="hljs-comment">#爬取的内容输出到文件</span>
+<span class="hljs-params">--ua</span>, -u user-agent: user agent to send                 <span class="hljs-comment">#使用useragent，这个可以突破简单防御</span>
+<span class="hljs-params">--no-words</span>, -n: don&#x27;t output the wordlist              	<span class="hljs-comment">#不要输出字典</span>
+<span class="hljs-params">--meta</span>, -a include meta data							<span class="hljs-comment">#包含网页中的meta数据</span>
+<span class="hljs-params">--meta_file</span> file: output file for meta data				<span class="hljs-comment">#为meta数据输出个文件</span>
+<span class="hljs-params">--email</span>, -e include email addresses						<span class="hljs-comment">#包含email地址</span>
+<span class="hljs-params">--email_file</span> file: output file for email addresses      <span class="hljs-comment">#输出email地址</span>
+<span class="hljs-params">--meta-temp-dir</span> directory: the temporary directory used by exiftool when parsing files, default <span class="hljs-string">/tmp</span>
+<span class="hljs-params">--count</span>, -c: show the count for each word found             <span class="hljs-comment">#展示发现的每个单词的数量</span>
+
+Authentication
+    <span class="hljs-params">--auth_type</span>: digest or basic
+    <span class="hljs-params">--auth_user</span>: authentication username
+    <span class="hljs-params">--auth_pass</span>: authentication password
+
+Proxy Support
+    <span class="hljs-params">--proxy_host</span>: proxy host
+    <span class="hljs-params">--proxy_port</span>: proxy port, default 8080
+    <span class="hljs-params">--proxy_username</span>: username for proxy, <span class="hljs-keyword">if</span> required
+    <span class="hljs-params">--proxy_password</span>: password for proxy, <span class="hljs-keyword">if</span> required
+
+Headers
+    <span class="hljs-params">--header</span>, -H: in format name<span class="hljs-function">:value</span> - can pass multiple
+    
+<span class="hljs-params">--verbose</span>, -v: verbose</code></pre>
+
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><pre><code class="hljs apache"><span class="hljs-attribute">cewl</span> target_url -m <span class="hljs-number">3</span> -d <span class="hljs-number">3</span> -e -c -v -w x.txt</code></pre>
+
+
+
+<h4 id="Cupp"><a href="#Cupp" class="headerlink" title="Cupp"></a>Cupp</h4><p>Cupp是一款用Python语言写成的可交互性的字典生成脚本。尤其适合社会工程学，当你收集到目标的具体信息后，你就可以通过这个工具来智能化生成关于目标的字典。</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Mebus/</span>cupp</code></pre>
+
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><pre><code class="hljs cmake">apt <span class="hljs-keyword">install</span> cupp</code></pre>
+
+<h5 id="选项-1"><a href="#选项-1" class="headerlink" title="选项"></a>选项</h5><pre><code class="hljs diff"><span class="hljs-deletion">-v：查看cupp版本号</span>
+<span class="hljs-deletion">-h：查看帮助信息</span>
+<span class="hljs-deletion">-l：从github仓库下载字典</span>
+<span class="hljs-deletion">-i：使用交互式的提问创建用户密码字典，cupp的主要功能</span>
+<span class="hljs-deletion">-w：在已存在的字典上进行扩展</span></code></pre>
+
+<h5 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h5><p><code>cupp -i</code> 以交互式的方式生成字典</p>
+<p>会让你输入被攻击目标的姓、名、外号、生日、父母的名字、外号、生日、子女的名字、外号、生日等等一系列的信息。如果你有这些信息，直接输入，如果没有直接回车进行下一步。</p>
+<p>然后是宠物、公司等名称，需要不需要加关键字当前缀后缀等等，如果不知道或者不想加，直接回车跳过。</p>
+<p>最后在命令执行的目录里生成字典文件。</p>
+<p>注意：输入生日信息的时候是按照日、月、年的顺序，如11021990就是1990年2月11</p>
+<h4 id="genpAss"><a href="#genpAss" class="headerlink" title="genpAss"></a>genpAss</h4><p>中国特色的弱口令生成器</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/RicterZ/g</span>enpAss</code></pre>
+
+
+
+<h4 id="dictBuilder"><a href="#dictBuilder" class="headerlink" title="dictBuilder"></a>dictBuilder</h4><p>渗透测试中字典生成工具</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/he1m4n6a/</span>dictBuilder</code></pre>
+
+
+
+<h4 id="白鹿社工字典生成器"><a href="#白鹿社工字典生成器" class="headerlink" title="白鹿社工字典生成器"></a>白鹿社工字典生成器</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/HongLuDianXue/</span>BaiLu-SED-Tool</code></pre>
+
+
+
+<h4 id="leakPasswd"><a href="#leakPasswd" class="headerlink" title="leakPasswd"></a>leakPasswd</h4><p>leakPasswd 是用来查询密码泄露的python模块</p>
+<h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> leakPasswd</code></pre>
+
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre><code class="hljs reasonml">import leakPasswd
+查询所有厂商已泄露密码的信息
+leakPasswd.query<span class="hljs-constructor">Breachs()</span>
+查看指定厂商已泄露的密码信息
+leakPasswd.find<span class="hljs-constructor">Breach(&#x27;<span class="hljs-params">taobao</span>&#x27;)</span>
+查看指定账号已泄露的密码信息
+leakPasswd.find<span class="hljs-constructor">Account(&#x27;<span class="hljs-params">test</span>@<span class="hljs-params">qq</span>.<span class="hljs-params">com</span>&#x27;)</span></code></pre>
+
+
+
+<hr>
+<h3 id="Bypass-AV"><a href="#Bypass-AV" class="headerlink" title="Bypass AV"></a>Bypass AV</h3><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/lengjibo/</span>FourEye</code></pre>
+
+<h3 id="ShellCode加载器"><a href="#ShellCode加载器" class="headerlink" title="ShellCode加载器"></a>ShellCode加载器</h3><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/knownsec/</span>shellcodeloader
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/timwhitez/</span>Doge-Loader</code></pre>
+
+
+
+<hr>
+<h3 id="漏洞利用工具"><a href="#漏洞利用工具" class="headerlink" title="漏洞利用工具"></a>漏洞利用工具</h3><p>通过burp代理流量寻找shiro站点</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Jumbo-WJB/</span>burp_find_shiro</code></pre>
+
+
+
+<hr>
+<h3 id="工具集"><a href="#工具集" class="headerlink" title="工具集"></a>工具集</h3><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/k8gege/</span>K8tools
+
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/l3m0n/</span>pentest_tools</code></pre>
+
+
+
+<hr>
+<h3 id="随机代理工具"><a href="#随机代理工具" class="headerlink" title="随机代理工具"></a>随机代理工具</h3><h4 id="freeproxy"><a href="#freeproxy" class="headerlink" title="freeproxy"></a>freeproxy</h4><p>免费获取http代理并生成proxifier配置文件</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/heikanet/</span>freeproxy
+https:<span class="hljs-regexp">//m</span>p.weixin.qq.com<span class="hljs-regexp">/s/</span>S4BxmYelvPR1tZD8O-AAIQ - 渗透测试中老被waf拉黑？本文或许对你有点帮助...</code></pre>
+
+
+
+<h4 id="jcrandomproxy"><a href="#jcrandomproxy" class="headerlink" title="jcrandomproxy"></a>jcrandomproxy</h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/chroblert/</span>jcrandomproxy
+https:<span class="hljs-regexp">//m</span>p.weixin.qq.com<span class="hljs-regexp">/s/</span>lj6e9zuhsUs_F1owFmhQFw - 工具|隐藏IP|随机代理GUI版</code></pre>
+
+
+
+<hr>
+<h3 id="漏洞测试框架"><a href="#漏洞测试框架" class="headerlink" title="漏洞测试框架"></a>漏洞测试框架</h3><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/knownsec/</span>pocsuite3
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Xyntax/</span>POC-T
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/qianxiao996/</span>FrameScan-GUI</code></pre>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Tools/">Tools</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Tools/">Tools</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/12/%E9%9D%B6%E5%9C%BA%E6%94%B6%E9%9B%86/">
+                        <span class="hidden-mobile">靶场收集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5c0e130ed04b8f55fb9ecacc1d607489";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

