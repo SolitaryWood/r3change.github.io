@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      2.8k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      39
+      40
        分钟
     </span>
   
@@ -247,7 +247,7 @@
             <h1 style="display: none">Python技巧记录</h1>
             
             <div class="markdown-body">
-              <h3 id="打印输出函数"><a href="#打印输出函数" class="headerlink" title="打印输出函数"></a>打印输出函数</h3><h4 id="print-函数"><a href="#print-函数" class="headerlink" title="print()函数"></a>print()函数</h4><p>最常用的打印输出的函数，不过在打印输出一个很长的列表时，会全部输出在一行，不是很美观</p>
+              <h3 id="打印输出函数"><a href="#打印输出函数" class="headerlink" title="打印输出函数"></a>打印输出函数</h3><h4 id="print-函数"><a href="#print-函数" class="headerlink" title="print()函数"></a>print()函数</h4><p>最常用的打印输出的函数，不过打印输出内容都在一行显示，当输出一个很长内容时就会显得不是很美观</p>
 <h4 id="pprint-函数"><a href="#pprint-函数" class="headerlink" title="pprint()函数"></a>pprint()函数</h4><p>pprint 的全称是Pretty Printer，更美观的 printer。在打印内容很长的对象时，它能够以一种格式化的形式输出。</p>
 <pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>coordinates = [
 <span class="hljs-meta">... </span>   &#123;
@@ -594,6 +594,18 @@ hourse <span class="hljs-literal">None</span>
 age <span class="hljs-number">45</span>
 money <span class="hljs-number">998</span>
 name lowman</code></pre>
+
+
+
+<h3 id="将中文符号转换成英文符号"><a href="#将中文符号转换成英文符号" class="headerlink" title="将中文符号转换成英文符号"></a>将中文符号转换成英文符号</h3><pre><code class="hljs python">In [<span class="hljs-number">1</span>]: table = &#123;<span class="hljs-built_in">ord</span>(f):<span class="hljs-built_in">ord</span>(t) <span class="hljs-keyword">for</span> f,t <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(<span class="hljs-string">u&#x27;，。！？：&#x27;</span>, <span class="hljs-string">u&#x27;,.!?:&#x27;</span>)&#125;
+
+In [<span class="hljs-number">2</span>]: s = <span class="hljs-string">&#x27;http：//www。baidu.com/？s=1&#x27;</span>
+
+In [<span class="hljs-number">3</span>]: s.translate(table)
+Out[<span class="hljs-number">3</span>]: <span class="hljs-string">&#x27;http://www.baidu.com/?s=1&#x27;</span></code></pre>
+
+<p>参考</p>
+<pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>www.zhihu.com<span class="hljs-regexp">/question/</span><span class="hljs-number">37720196</span><span class="hljs-regexp">/answer/</span><span class="hljs-number">115870233</span> - 使用python将中文标点转为英文标点</code></pre>
 
 
             </div>
