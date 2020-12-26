@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.8k 字
+      3.2k 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      40
+      45
        分钟
     </span>
   
@@ -308,43 +308,70 @@ instance(Person):
   age: <span class="hljs-number">10</span></code></pre>
 
 <p>注：print和pprint是python内置的，而 beeprint 需要额外安装。</p>
-<h3 id="打印输出彩色字符"><a href="#打印输出彩色字符" class="headerlink" title="打印输出彩色字符"></a>打印输出彩色字符</h3><p>例子</p>
-<pre><code class="hljs python">print(<span class="hljs-string">&#x27;\033[1;31;40m&#x27;</span>)
-print(<span class="hljs-string">&#x27;*&#x27;</span> * <span class="hljs-number">50</span>)
-print(<span class="hljs-string">&#x27;*HOST:\t&#x27;</span>, <span class="hljs-number">2002</span>)
-print(<span class="hljs-string">&#x27;*URI:\t&#x27;</span>, <span class="hljs-string">&#x27;http://127.0.0.1&#x27;</span>)
-print(<span class="hljs-string">&#x27;*ARGS:\t&#x27;</span>, <span class="hljs-number">111</span>)
-print(<span class="hljs-string">&#x27;*TIME:\t&#x27;</span>, <span class="hljs-string">&#x27;22:28&#x27;</span>)
-print(<span class="hljs-string">&#x27;*&#x27;</span> * <span class="hljs-number">50</span>)
-print(<span class="hljs-string">&#x27;\033[0m&#x27;</span>)</code></pre>
+<h3 id="打印输出彩色字符"><a href="#打印输出彩色字符" class="headerlink" title="打印输出彩色字符"></a>打印输出彩色字符</h3><h4 id="使用转义序列实现不同颜色字符显示"><a href="#使用转义序列实现不同颜色字符显示" class="headerlink" title="使用转义序列实现不同颜色字符显示"></a>使用转义序列实现不同颜色字符显示</h4><p>终端的字符颜色显示是通过转义序列控制的，是文本模式下的系统显示功能，和具体的语言无关。转义序列以ESC开头，即 <code>\033</code>（ESC的ASCII码用十进制表示是27，用八进制表示是033）</p>
+<p>显示格式：</p>
+<pre><code class="hljs taggerscript"><span class="hljs-symbol">\0</span>33[显示方式;前景色;背景色m要打印输出的文字<span class="hljs-symbol">\0</span>33[0m</code></pre>
 
-<h4 id="colorama模块"><a href="#colorama模块" class="headerlink" title="colorama模块"></a>colorama模块</h4><p>colorama是一个python专门用来在控制台、命令行输出彩色文字的模块，可以跨平台使用。</p>
-<p>安装colorama模块</p>
-<pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> colorama</code></pre>
+<p>注：显示方式、前景色、背景色这三个参数都是可选参数，可以只写其中的某一个。另外由于表示三个参数不同含义的数值都是唯一的没有重复的，所以三个参数的书写先后顺序没有固定要求，系统都能识别，但是，建议按照默认的格式规范书写。</p>
+<p>参数可选值：</p>
+<pre><code class="hljs tap">显示方式             　 意义
+0                    终端默认设置
+1                    高亮显示
+22　　　　　　　　　　　非高亮显示
+4                    使用下划线
+24　　　　　　　　　　　去下划线
+5                    闪烁
+25　　　　　　　　　　　去闪烁
+7                    反白显示
+27　　　　　　　　　　　非反显
+8                    不可见
+28　　　　　　　　　　　可见
 
-<p>可用格式常数:</p>
-<pre><code class="hljs mipsasm"><span class="hljs-symbol">Fore:</span> <span class="hljs-keyword">BLACK, </span>RED, GREEN, YELLOW, <span class="hljs-keyword">BLUE, </span>MAGENTA, CYAN, WHITE, RESET.
-<span class="hljs-keyword">Back: </span><span class="hljs-keyword">BLACK, </span>RED, GREEN, YELLOW, <span class="hljs-keyword">BLUE, </span>MAGENTA, CYAN, WHITE, RESET.
-<span class="hljs-symbol">Style:</span> <span class="hljs-keyword">DIM, </span><span class="hljs-keyword">NORMAL, </span><span class="hljs-keyword">BRIGHT, </span>RESET_ALL</code></pre>
+前景色            背景色           颜色
+30               <span class="hljs-number"> 40 </span>             黑色
+31               <span class="hljs-number"> 41 </span>             红色
+32               <span class="hljs-number"> 42 </span>             绿色
+33               <span class="hljs-number"> 43 </span>             黃色
+34               <span class="hljs-number"> 44 </span>             蓝色
+35               <span class="hljs-number"> 45 </span>             洋红
+36               <span class="hljs-number"> 46 </span>             青色
+37               <span class="hljs-number"> 47 </span>             白色</code></pre>
 
-<p>跨平台印刷彩色文本可以使用彩色光的常数简称ANSI转义序列:</p>
-<pre><code class="hljs routeros"><span class="hljs-keyword">from</span> colorama import Fore,Back,Style
-<span class="hljs-builtin-name">print</span> (Fore.RED + <span class="hljs-string">&quot;some red text&quot;</span>)
-<span class="hljs-builtin-name">print</span> (Back.GREEN + <span class="hljs-string">&quot;and with a green background&quot;</span>)
-<span class="hljs-builtin-name">print</span> (Style.DIM + <span class="hljs-string">&quot;and in dim text&quot;</span>)
-<span class="hljs-builtin-name">print</span> (Style.RESET_ALL)
-<span class="hljs-builtin-name">print</span> (<span class="hljs-string">&quot;back to normal now!!&quot;</span>)</code></pre>
+<p>例子：</p>
+<pre><code class="hljs python">print(<span class="hljs-string">&#x27;\033[31m打印输出红色字符\033[0m&#x27;</span>)
+print(<span class="hljs-string">&#x27;\033[44m打印输出蓝色背景的字符\033[0m&#x27;</span>)</code></pre>
 
-<p>Init关键字参数:</p>
-<p>init()接受一些 <code>* * kwargs</code> 覆盖缺省行为</p>
-<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">init</span><span class="hljs-params">(autoreset = False)</span></span>:</code></pre>
+<p>注：用这种原生的转义序列输出，在Linux下完全支持，但是在Windows下可能存在兼容问题，比如在 Windows 10下可以正常显示颜色，在 Windows 7下确不支持</p>
+<h4 id="colorama模块"><a href="#colorama模块" class="headerlink" title="colorama模块"></a>colorama模块</h4><p>colorama是Python专门用来在控制台、命令行输出彩色文字的模块，Python内置模块，可以跨平台使用，内部实现也是采用转义序列来显示颜色的，只不过对Windows平台做了特殊处理，因此完全兼容Linux和Windows各个版本。</p>
+<p>模块常量：</p>
+<pre><code class="hljs python"><span class="hljs-comment"># Fore指定字体颜色</span>
+Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET
+<span class="hljs-comment"># Back指定背景色</span>
+Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET
+<span class="hljs-comment"># Style指定字体样式</span>
+Style: DIM, NORMAL, BRIGHT, RESET_ALL</code></pre>
 
-<p>如果你发现自己一再发送重置序列结束时关闭颜色变化每一个打印，然后 <code>init(autoreset = True)</code> 将自动化</p>
-<p>示例：</p>
-<pre><code class="hljs routeros"><span class="hljs-keyword">from</span> colorama import init,Fore
-init(<span class="hljs-attribute">autoreset</span>=<span class="hljs-literal">True</span>)
-<span class="hljs-builtin-name">print</span> (Fore.RED + <span class="hljs-string">&quot;welcome to python !!&quot;</span>)
-<span class="hljs-builtin-name">print</span> (<span class="hljs-string">&quot;automatically back to default color again&quot;</span>)</code></pre>
+<p>使用这些常量来打印彩色字符：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">from</span> colorama <span class="hljs-keyword">import</span> Fore,Back,Style
+print(Fore.RED + <span class="hljs-string">&quot;some red text&quot;</span> + Fore.RESET)
+print(Back.GREEN + <span class="hljs-string">&quot;and with a green background&quot;</span> + Back.RESET)
+print(Style.DIM + <span class="hljs-string">&quot;and in dim text&quot;</span>)
+print(Style.RESET_ALL)
+print(<span class="hljs-string">&quot;back to normal now!!&quot;</span>)</code></pre>
+
+<p><code>init()</code>方法</p>
+<pre><code class="hljs python">init(**kwargs)
+init(autoreset = <span class="hljs-literal">True</span>) <span class="hljs-comment"># 自动恢复到默认颜色</span></code></pre>
+
+<p>使用 <code>inti()</code> 方法初始化并设置颜色自动恢复到默认</p>
+<pre><code class="hljs python"><span class="hljs-keyword">from</span> colorama <span class="hljs-keyword">import</span> init,Fore,Back,Style
+init(autoreset=<span class="hljs-literal">True</span>)
+print(Fore.RED + <span class="hljs-string">&#x27;some red text&#x27;</span>)
+print(Back.GREEN + <span class="hljs-string">&#x27;and with a green background&#x27;</span>)
+print(Style.DIM + <span class="hljs-string">&#x27;and in dim text&#x27;</span>)
+<span class="hljs-comment"># 如果未设置autoreset=True，需要使用如下代码重置终端颜色为初始设置</span>
+<span class="hljs-comment"># print(Fore.RESET + Back.RESET + Style.RESET_ALL)</span>
+print(<span class="hljs-string">&#x27;back to normal now&#x27;</span>)</code></pre>
 
 
 
