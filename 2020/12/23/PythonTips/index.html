@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.3k 字
     </span>
   
 
@@ -342,6 +342,10 @@ instance(Person):
 print(<span class="hljs-string">&#x27;\033[44m打印输出蓝色背景的字符\033[0m&#x27;</span>)</code></pre>
 
 <p>注：用这种原生的转义序列输出，在Linux下完全支持，但是在Windows下可能存在兼容问题，比如在 Windows 10下可以正常显示颜色，在 Windows 7下确不支持</p>
+<p>注：在Windows上cmd命令窗口不显示颜色并且转义序列乱码的解决办法加上如下代码</p>
+<pre><code class="hljs python"><span class="hljs-keyword">from</span> colorama <span class="hljs-keyword">import</span> init
+init(autoreset=<span class="hljs-literal">True</span>)</code></pre>
+
 <h4 id="colorama模块"><a href="#colorama模块" class="headerlink" title="colorama模块"></a>colorama模块</h4><p>colorama是Python专门用来在控制台、命令行输出彩色文字的模块，Python内置模块，可以跨平台使用，内部实现也是采用转义序列来显示颜色的，只不过对Windows平台做了特殊处理，因此完全兼容Linux和Windows各个版本。</p>
 <p>模块常量：</p>
 <pre><code class="hljs python"><span class="hljs-comment"># Fore指定字体颜色</span>
@@ -668,8 +672,8 @@ Out[<span class="hljs-number">3</span>]: <span class="hljs-string">&#x27;http://
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/12/%E5%90%84%E7%B1%BB%E5%B7%A5%E5%85%B7%E6%94%B6%E9%9B%86/">
-                        <span class="hidden-mobile">各类工具收集</span>
+                      <a href="/2020/12/16/202012162324/">
+                        <span class="hidden-mobile">BurpSuite扩展插件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
