@@ -248,25 +248,25 @@
             
             <div class="markdown-body">
               <p>首先通过Nmap探测到靶机IP地址为 192.168.93.6，然后使用Nmap进行全端口扫描</p>
-<p><img src="/img/vulnhub/dc-2_1.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_1.png" srcset="/img/loading.gif"></p>
 <p>目标主机开放80和7744端口</p>
 <p>这里访问需要配置 hosts</p>
 <pre><code class="hljs apache"><span class="hljs-comment"># Linux环境 /etc/hosts</span>
 <span class="hljs-comment"># Windows环境 C:\Windows\System32\drivers\etc\hosts</span>
 <span class="hljs-attribute">192</span>.<span class="hljs-number">168</span>.<span class="hljs-number">93</span>.<span class="hljs-number">6</span>    dc-<span class="hljs-number">2</span></code></pre>
 
-<p><img src="/img/vulnhub/dc-2_2.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_2.png" srcset="/img/loading.gif"></p>
 <p>指纹识别</p>
-<p><img src="/img/vulnhub/dc-2_3.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_3.png" srcset="/img/loading.gif"></p>
 <p>识别出来是 wordpress 4.7.10 搭建的站点</p>
 <p>使用 WPScan 进行扫描</p>
 <pre><code class="hljs awk">wpscan --url http:<span class="hljs-regexp">//</span>dc-<span class="hljs-number">2</span> -e u,vt,tt,vp</code></pre>
 
-<p><img src="/img/vulnhub/dc-2_4.png" srcset="/img/loading.gif"></p>
-<p><img src="/img/vulnhub/dc-2_5.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_4.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_5.png" srcset="/img/loading.gif"></p>
 <p>同样识别出来是 wordpress 4.7.10 版本，枚举出来三个用户：admin、jerry、tom</p>
 <p>在站点 flag 页面发现 flag1</p>
-<p><img src="/img/vulnhub/dc-2_6.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_6.png" srcset="/img/loading.gif"></p>
 <p>根据提示可以使用 cewl 工具爬取网站内容关键字生成一份密码字典来爆破后台</p>
 <pre><code class="hljs apache"><span class="hljs-attribute">cewl</span> http://dc-<span class="hljs-number">2</span> -m <span class="hljs-number">3</span> -d <span class="hljs-number">3</span> -e -w password.txt</code></pre>
 
@@ -274,14 +274,14 @@
 <p>使用WPScan爆破密码</p>
 <pre><code class="hljs awk">wpscan --url http:<span class="hljs-regexp">//</span>dc-<span class="hljs-number">2</span> -U username.txt -P password.txt</code></pre>
 
-<p><img src="/img/vulnhub/dc-2_7.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_7.png" srcset="/img/loading.gif"></p>
 <p>成功爆破出两个用户密码</p>
 <pre><code class="hljs groovy"><span class="hljs-attr">Username:</span> jerry, <span class="hljs-attr">Password:</span> adipiscing
 <span class="hljs-attr">Username:</span> tom, <span class="hljs-attr">Password:</span> parturient</code></pre>
 
 <p>使用账号 jerry 密码 adipiscing 登录管理后台 <code>http://dc-2/wp-admin/</code></p>
 <p>在管理后台发现 flag2</p>
-<p><img src="/img/vulnhub/dc-2_8.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_8.png" srcset="/img/loading.gif"></p>
 <p>登录的是一个低权限的账号，无法获取shell，根据提示找另一个切入点，切合前面扫描出来的 7744 端口开放 ssh 服务，使用现有账号密码尝试 ssh 登录</p>
 <p>使用账号 tom，密码 parturient 可以成功登录</p>
 <pre><code class="hljs apache"><span class="hljs-attribute">ssh</span> tom@<span class="hljs-number">192.168.93.6</span> -p <span class="hljs-number">7744</span></code></pre>
@@ -292,22 +292,22 @@
 export PATH=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/bin/</span>
 export PATH=<span class="hljs-variable">$PATH</span><span class="hljs-symbol">:/usr/bin</span></code></pre>
 
-<p><img src="/img/vulnhub/dc-2_9.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_9.png" srcset="/img/loading.gif"></p>
 <p>查看 flag3.txt 文件获取到 flag3</p>
 <p>根据提示切换到 jerry 用户</p>
 <pre><code class="hljs mipsasm">su <span class="hljs-keyword">jerry</span>
 <span class="hljs-keyword"># </span>password: adipiscing</code></pre>
 
 <p>在用户家目录发现 flag4.txt 文件，查看获取flag4</p>
-<p><img src="/img/vulnhub/dc-2_10.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_10.png" srcset="/img/loading.gif"></p>
 <p>执行 <code>sudo -l</code> 命令，发现可列出当前用户可执行的命令，表示当前用户有sudo访问权限</p>
-<p><img src="/img/vulnhub/dc-2_11.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_11.png" srcset="/img/loading.gif"></p>
 <p>git命令可以以root权限执行，且不需要密码</p>
 <p>执行 <code>sudo git help config</code> 命令，要输出的信息过多会分页显示内容，此时输入 <code>!/bin/bah</code> 回车后，会获取到root权限的shell</p>
-<p><img src="/img/vulnhub/dc-2_12.png" srcset="/img/loading.gif"></p>
-<p><img src="/img/vulnhub/dc-2_13.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_12.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_13.png" srcset="/img/loading.gif"></p>
 <p>使用 find 命令模糊搜索所有 txt 文件，最终在 root 目录下发现最后的flag文件</p>
-<p><img src="/img/vulnhub/dc-2_14.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-2/dc-2_14.png" srcset="/img/loading.gif"></p>
 <p>参考</p>
 <pre><code class="hljs apache"><span class="hljs-attribute">https</span>://mp.weixin.qq.com/s/gK<span class="hljs-number">3</span>jmQIqOcNPwtUM<span class="hljs-number">5</span>-h<span class="hljs-number">5</span>pg - 【vulnhub】DC-<span class="hljs-number">2</span></code></pre>
 

